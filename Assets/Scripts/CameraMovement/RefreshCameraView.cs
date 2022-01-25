@@ -13,6 +13,19 @@ namespace CameraMovement
         private void Awake()
         {
             _cinemachineBrain = GetComponent<CinemachineBrain>();
+            
+            MouseClickOnObject.onStartInteractionWithObject += Disable;
+            MouseClickOnObject.onStopInteractionWithObject += Enable;
+            CursorHolder.onStartDragItem += Disable;
+            CursorHolder.onStopDragItem += Enable;
+        }
+
+        private void OnDestroy()
+        {
+            MouseClickOnObject.onStartInteractionWithObject -= Disable;
+            MouseClickOnObject.onStopInteractionWithObject -= Enable;
+            CursorHolder.onStartDragItem -= Disable;
+            CursorHolder.onStopDragItem -= Enable;
         }
 
         private void Update()
@@ -30,5 +43,8 @@ namespace CameraMovement
             _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
             _cinemachineDefaultCamera.Priority = 1;
         }
+
+        private void Disable() => this.enabled = false;
+        private void Enable() => this.enabled = true;
     }
 }

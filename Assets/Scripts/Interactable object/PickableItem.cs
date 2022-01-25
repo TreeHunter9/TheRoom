@@ -1,5 +1,6 @@
 using Inventory_System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Interactable_object
 {
@@ -7,10 +8,12 @@ namespace Interactable_object
     {
         [SerializeField] private InventoryItem _inventoryItem;
         [SerializeField] private InventoryChannel _inventoryChannel;
+        [SerializeField] private UnityEvent _actionsAfterPickUp;
 
         public void TakeItem()
         {
             _inventoryChannel.RaiseLootItem(_inventoryItem);
+            _actionsAfterPickUp?.Invoke();
             Destroy(gameObject);
         }
 

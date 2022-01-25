@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +5,8 @@ namespace Inventory_System
 {
     public class InventorySlotUIController : MonoBehaviour
     {
+        [SerializeField] private Color _spriteColor = Color.white;
+        
         private Image _image;
 
         private InventorySlot _inventorySlot;
@@ -29,7 +30,16 @@ namespace Inventory_System
 
         private void UpdateSlot()
         {
-            _image.sprite = _inventorySlot.Item != null ? _inventorySlot.Item.sprite : null;
+            if (_inventorySlot.Item != null)
+            {
+                _image.sprite = _inventorySlot.Item.sprite;
+                _image.color = _spriteColor;
+            }
+            else
+            {
+                _image.sprite = null;
+                _image.color = Color.clear;
+            }
         }
     }
 }

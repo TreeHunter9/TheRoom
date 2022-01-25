@@ -7,14 +7,10 @@ namespace Inventory_System
     {
         private readonly List<InventorySlot> _slots = new List<InventorySlot>();
 
-        public event Action<InventorySlot> onSlotAdded; 
-
-        public InventorySlot CreateSlot()
+        public void CreateSlot()
         {
             InventorySlot slot = new InventorySlot();
             _slots.Add(slot);
-            onSlotAdded?.Invoke(slot);
-            return slot;
         }
 
         public void Clear()

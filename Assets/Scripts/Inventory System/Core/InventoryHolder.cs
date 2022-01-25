@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Inventory_System
@@ -24,6 +23,11 @@ namespace Inventory_System
         private void OnDisable()
         {
             _inventoryChannel.onInventoryItemLoot -= InventoryItemLoot;
+        }
+
+        private void Update()
+        {
+            
         }
 
         private void InventoryItemLoot(InventoryItem item)

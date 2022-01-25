@@ -1,6 +1,7 @@
 using System;
 using Cinemachine;
 using UnityEngine;
+using Inventory_System;
 
 namespace CameraMovement
 {
@@ -28,12 +29,16 @@ namespace CameraMovement
         {
             MouseClickOnObject.onStartInteractionWithObject += StopMovement;
             MouseClickOnObject.onStopInteractionWithObject += StartMovement;
+            CursorHolder.onStartDragItem += StopMovement;
+            CursorHolder.onStopDragItem += StartMovement;
         }
 
         private void OnDisable()
         {
             MouseClickOnObject.onStartInteractionWithObject -= StopMovement;
             MouseClickOnObject.onStopInteractionWithObject -= StartMovement;
+            CursorHolder.onStartDragItem -= StopMovement;
+            CursorHolder.onStopDragItem -= StartMovement;
         }
 
         private float GetAxis(string axisName)

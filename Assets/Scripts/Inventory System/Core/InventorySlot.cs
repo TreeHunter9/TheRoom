@@ -19,12 +19,6 @@ namespace Inventory_System
             }
         }
 
-        private void MoveTo(InventorySlot slot)
-        {
-            slot._item = _item;
-            Clear();
-        }
-
         public void Clear()
         {
             _item = null;

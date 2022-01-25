@@ -22,7 +22,6 @@ namespace Inventory_System
 
         private void CreateUIInventory()
         {
-            _inventory.onSlotAdded += CreateSlotController;
             _inventory.ForEach(CreateSlotController);
         }
 

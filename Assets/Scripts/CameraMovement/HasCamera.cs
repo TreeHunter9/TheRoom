@@ -4,6 +4,7 @@ using Interactable_object;
 
 namespace CameraMovement
 {
+    [RequireComponent(typeof(InteractList))]
     public class HasCamera : MonoBehaviour
     {
         [SerializeField] private CinemachineFreeLook _camera;
@@ -13,11 +14,13 @@ namespace CameraMovement
         private Collider _collider;
         private InteractList _interactList;
 
+        private bool _hasCollider;
+
         private void Awake()
         {
             _cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
             _interactList = GetComponent<InteractList>();
-            _collider = GetComponent<Collider>();
+            _hasCollider = TryGetComponent(out _collider);
         }
 
         public void ChangeCameraView()
@@ -30,13 +33,15 @@ namespace CameraMovement
 
         public void DisableInteractableObjects()
         {
-            _collider.enabled = true;
+            if (_hasCollider == true)
+                _collider.enabled = true;
             _interactList?.DisableInteractableObjects();
         }
-        
-        public void EnableInteractableObjects()
+
+        private void EnableInteractableObjects()
         {
-            _collider.enabled = false;
+            if (_hasCollider == true)
+                _collider.enabled = false;
             _interactList?.EnableInteractableObjects();
         }
     }
