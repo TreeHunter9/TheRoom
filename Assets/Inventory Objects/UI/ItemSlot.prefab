@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 43.0742, y: 43.0742}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -407.09998, y: -174.29999}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4776919966938426366
 CanvasRenderer:
@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafd7a9edbc7d1043b31592eecf2f2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2863979671738766655
 MonoBehaviour:
   m_ObjectHideFlags: 0

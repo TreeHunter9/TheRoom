@@ -43,7 +43,8 @@ namespace CameraMovement
             {
                 if (hit.distance > 0f && hit.transform.CompareTag(Utilities.Constants.NeededItemTag))
                 {
-                    
+                    ItemNeeded itemNeeded = hit.transform.GetComponent<ItemNeeded>();
+                    itemNeeded.SetupItem();
                 }
                 _cursorHolder.Clear();
             }
