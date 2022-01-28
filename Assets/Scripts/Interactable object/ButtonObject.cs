@@ -18,7 +18,7 @@ namespace Interactable_object
 
         public override void StartInteraction(Vector3 startPos = default)
         {
-            _isActive = true;
+            isActive = true;
             transform.position = _endPosition;
         }
 

@@ -11,13 +11,12 @@ namespace Interactable_object
         [SerializeField] private Vector3Int _rotationOnAxis;
 
         private Quaternion _startRotation;
-        private Vector3 _offset;
         private Vector3 _startPosition;
-
-        private Vector3 _mouseVector = Vector3.zero;
 
         private GameObject _lookAtGO;
         private GameObject _planeForRaycast;
+
+        private bool _isUsingForKey;
 
         private void Awake()
         {
@@ -29,11 +28,13 @@ namespace Interactable_object
             CreatePlaneForRaycast();
             
             _rotationOnAxis = _rotationOnAxis.Invert();
+
+            _isUsingForKey = TryGetComponent(out KeyController keyController);
         }
 
         private void Update()
         {
-            if (_isActive == true)
+            if (isActive == true)
             {
                 RotateObject();
             }
@@ -76,13 +77,11 @@ namespace Interactable_object
             Vector3 direction, lookRotation;
             if (Physics.Raycast(ray, out RaycastHit hit, 1000f, 1 << Constants.PlaneLayer))
             {
-                _mouseVector = hit.point;
                 direction = hit.point - _lookAtGO.transform.position;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
             else
             {
-                _mouseVector = GetMouseWorldPosition() + _offset;
                 direction = _mainCamera.transform.position + ray.direction * 1000f - _lookAtGO.transform.position;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
@@ -91,13 +90,6 @@ namespace Interactable_object
             lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
             lookRotation.z = _rotationOnAxis.z == 1 ? lookRotation.z :_startRotation.eulerAngles.z;
             return lookRotation;
-        }
-        
-        private Vector3 GetMouseWorldPosition()
-        {
-            Vector3 mousePoint = Input.mousePosition;
-            mousePoint.z = _mainCamera.WorldToScreenPoint(_startPosition).z;
-            return _mainCamera.ScreenToWorldPoint(mousePoint);
         }
 
         private Vector3 FindLookRotation(Vector3Int vector3Int, Vector3 direction)
@@ -122,26 +114,24 @@ namespace Interactable_object
             _planeForRaycast.SetActive(true);
             
             _startPosition = startPos;
-            _offset = _startPosition - GetMouseWorldPosition();
 
             RotateGOForLookAt();
             transform.parent = _lookAtGO.transform;
 
-            _isActive = true;
+            isActive = true;
         }
 
         public override void StopInteraction()
         {
-            if (Quaternion.Angle(_endRotation, transform.rotation) <= 4.5f)
+            if (_isUsingForKey == false && Quaternion.Angle(_endRotation, transform.rotation) <= 4.5f)
             {
                 transform.rotation = _endRotation;
                 _actionOnComplete?.Invoke();
-                
                 Destroy(this);
             }
             transform.parent = _lookAtGO.transform.parent;
             _planeForRaycast.SetActive(false);
-            _isActive = false;
+            isActive = false;
         }
     }
 }

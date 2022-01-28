@@ -30,7 +30,7 @@ namespace Interactable_object
 
         private void Update()
         {
-            if (_isActive == true)
+            if (isActive == true)
             {
                 MoveObject();
             }
@@ -87,12 +87,12 @@ namespace Interactable_object
         {
             _mouseStartPosition = _startPosition;
             _offset = transform.position - GetMouseWorldPosition();
-            _isActive = true;
+            isActive = true;
         }
 
         public override void StopInteraction()
         {
-            _isActive = false;
+            isActive = false;
             
             if (CompletePercent >= 0.8f)
             {

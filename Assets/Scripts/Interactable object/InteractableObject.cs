@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,19 @@ namespace Interactable_object
         
         protected Camera _mainCamera;
         
-        protected bool _isActive = false;
+        private bool _isActive = false;
+
+        protected bool isActive
+        {
+            get => _isActive;
+            set
+            {
+                _isActive = value;
+                onChangeActive?.Invoke(_isActive);
+            }
+        }
+
+        public event Action<bool> onChangeActive;
 
         public abstract void StartInteraction(Vector3 startPos = default);
         

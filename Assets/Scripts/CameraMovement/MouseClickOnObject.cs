@@ -79,8 +79,8 @@ namespace CameraMovement
             else if (Input.GetMouseButtonUp(0) && _isInteracts == true)
             {
                 onStopInteractionWithObject?.Invoke();
-
-                _interactableObject.StopInteraction();
+                if (_interactableObject != null)
+                    _interactableObject.StopInteraction();
             }
         }
     }
