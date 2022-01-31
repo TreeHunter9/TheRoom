@@ -1,7 +1,6 @@
-using System;
 using Cinemachine;
+using UI;
 using UnityEngine;
-using Inventory_System;
 
 namespace CameraMovement
 {
@@ -10,13 +9,11 @@ namespace CameraMovement
         [Range(0.1f, 10f)]
         [SerializeField] private float _sensitivity = 2f;
 
-        private float _currentSensitivity;
+        private float _sensitivityAvailable = 1f;
         private CinemachineBrain _cinemachineBrain;
-        
 
         private void Awake()
         {
-            _currentSensitivity = _sensitivity;
             _cinemachineBrain = GetComponent<CinemachineBrain>();
         }
 
@@ -31,6 +28,8 @@ namespace CameraMovement
             MouseClickOnObject.onStopInteractionWithObject += StartMovement;
             CursorHolder.onStartDragItem += StopMovement;
             CursorHolder.onStopDragItem += StartMovement;
+            MenuController.onMenuEnable += StopMovement;
+            MenuController.onMenuDisable += StartMovement;
         }
 
         private void OnDisable()
@@ -39,6 +38,8 @@ namespace CameraMovement
             MouseClickOnObject.onStopInteractionWithObject -= StartMovement;
             CursorHolder.onStartDragItem -= StopMovement;
             CursorHolder.onStopDragItem -= StartMovement;
+            MenuController.onMenuEnable -= StopMovement;
+            MenuController.onMenuDisable -= StartMovement;
         }
 
         private float GetAxis(string axisName)
@@ -48,15 +49,22 @@ namespace CameraMovement
             
             return axisName switch
             {
-                "Mouse X" when Input.GetMouseButton(0) => Input.GetAxis("Mouse X") * -1f * _currentSensitivity,
+                "Mouse X" when Input.GetMouseButton(0) => Input.GetAxis("Mouse X") * -1f 
+                    * _sensitivity * _sensitivityAvailable,
                 "Mouse X" => 0,
-                "Mouse Y" when Input.GetMouseButton(0) => Input.GetAxis("Mouse Y") * -1f * _currentSensitivity,
+                "Mouse Y" when Input.GetMouseButton(0) => Input.GetAxis("Mouse Y") * -1f 
+                    * _sensitivity * _sensitivityAvailable,
                 "Mouse Y" => 0,
                 _ => UnityEngine.Input.GetAxis(axisName)
             };
         }
 
-        private void StopMovement() => _currentSensitivity = 0f;
-        private void StartMovement() => _currentSensitivity = _sensitivity;
+        private void StopMovement() => _sensitivityAvailable = 0f;
+        private void StartMovement() => _sensitivityAvailable = 1f;
+
+        public void SetSensitivity(float value)
+        {
+            _sensitivity = value;
+        }
     }
 }

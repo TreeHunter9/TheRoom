@@ -12,7 +12,7 @@ namespace Interactable_object
 
         public void TakeItem()
         {
-            _inventoryChannel.RaiseLootItem(_inventoryItem);
+            _inventoryChannel.RaiseLootItemEvent(_inventoryItem);
             _actionsAfterPickUp?.Invoke();
             Destroy(gameObject);
         }

@@ -5,7 +5,7 @@ namespace Interactable_object
 {
     public class KeyholeAction : MonoBehaviour
     {
-        [SerializeField] private UnityAction _onOpenLock;
+        [SerializeField] private UnityEvent _onOpenLock;
 
         public void RaiseAction() => _onOpenLock?.Invoke();
     }

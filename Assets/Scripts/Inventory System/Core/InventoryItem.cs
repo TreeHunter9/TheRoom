@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 namespace Inventory_System
 {
@@ -7,5 +8,6 @@ namespace Inventory_System
     {
         public GameObject gameObject;
         public Sprite sprite;
+        public CinemachineFreeLook CMForObject;
     }
 }
