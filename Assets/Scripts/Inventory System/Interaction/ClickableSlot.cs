@@ -25,7 +25,7 @@ namespace Inventory_System
         public void OnPointerUp(PointerEventData eventData)
         {
             if (eventData.dragging == false)
-                _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.Item);
+                _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.InteractableItemData);
         }
     }
 }

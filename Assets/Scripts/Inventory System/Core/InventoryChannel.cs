@@ -6,11 +6,11 @@ namespace Inventory_System
     [CreateAssetMenu(menuName = "Inventory/Channels/InventoryChannel")]
     public class InventoryChannel : ScriptableObject
     {
-        public event Action<InventoryItem> onInventoryItemLoot;
+        public event Action<InventoryItem, GameObject> onInventoryItemLoot;
 
-        public void RaiseLootItemEvent(InventoryItem item)
+        public void RaiseLootItemEvent(InventoryItem item, GameObject itemGO)
         {
-            onInventoryItemLoot?.Invoke(item);
+            onInventoryItemLoot?.Invoke(item, itemGO);
         }
     }
 }

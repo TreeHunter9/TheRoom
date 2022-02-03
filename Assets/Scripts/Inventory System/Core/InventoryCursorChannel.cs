@@ -7,14 +7,14 @@ namespace Inventory_System
     public class InventoryCursorChannel : ScriptableObject
     {
         public event Action<InventoryItem> onItemSlotHold;
-        public event Action<InventoryItem> onItemSlotClick;
+        public event Action<InteractableItem> onItemSlotClick;
 
         public void RaiseItemSlotHoldEvent(InventoryItem item)
         {
             onItemSlotHold?.Invoke(item);
         }
 
-        public void RaiseItemSlotClickEvent(InventoryItem item)
+        public void RaiseItemSlotClickEvent(InteractableItem item)
         {
             onItemSlotClick?.Invoke(item);
         }

@@ -38,10 +38,10 @@ namespace CameraMovement
 
         private void ChangeView()
         {
-            _cinemachineBrain.ActiveVirtualCamera.Follow.GetComponent<HasCamera>().DisableInteractableObjects();
-            
-            _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
-            _cinemachineDefaultCamera.Priority = 1;
+            if (_cinemachineBrain.ActiveVirtualCamera.Follow.TryGetComponent(out HasCamera hasCamera))
+                hasCamera.DisableInteractableObjects();
+            //TODO: Смена камеры с предмета на деволтную происходит не сразу
+            CameraChanger.ChangeCamera(_cinemachineDefaultCamera);
         }
 
         private void Disable() => this.enabled = false;

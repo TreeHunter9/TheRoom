@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
 namespace Inventory_System
@@ -25,14 +26,11 @@ namespace Inventory_System
             _inventoryChannel.onInventoryItemLoot -= InventoryItemLoot;
         }
 
-        private void Update()
+        private void InventoryItemLoot(InventoryItem item, GameObject itemGO)
         {
-            
-        }
-
-        private void InventoryItemLoot(InventoryItem item)
-        {
-            _inventory.FindEmptySlot().Item = item;
+            InventorySlot slot = _inventory.FindEmptySlot();
+            slot.SetData(item, new InteractableItem(
+                itemGO, itemGO.GetComponentInChildren<CinemachineFreeLook>()));
         }
     }
 }

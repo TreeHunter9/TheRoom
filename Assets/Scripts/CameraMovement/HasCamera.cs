@@ -9,8 +9,6 @@ namespace CameraMovement
     {
         [SerializeField] private CinemachineFreeLook _camera;
 
-        private CinemachineBrain _cinemachineBrain;
-
         private Collider _collider;
         private InteractList _interactList;
 
@@ -18,7 +16,6 @@ namespace CameraMovement
 
         private void Awake()
         {
-            _cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
             _interactList = GetComponent<InteractList>();
             _hasCollider = TryGetComponent(out _collider);
         }
@@ -27,8 +24,7 @@ namespace CameraMovement
         {
             EnableInteractableObjects();
             
-            _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
-            _camera.Priority = 1;
+            CameraChanger.ChangeCamera(_camera);
         }
 
         public void DisableInteractableObjects()
