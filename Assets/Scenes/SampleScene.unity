@@ -190,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3038793}
   m_LocalRotation: {x: 0.04761293, y: 0.20040336, z: -0.055196553, w: 0.97699785}
-  m_LocalPosition: {x: 0.3822013, y: -0.18606466, z: -0.831794}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 388303791}
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 0.68, z: -0.92}
+  m_FollowOffset: {x: 0, y: 0.12, z: -0.97}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -959,7 +959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155741157}
   m_LocalRotation: {x: 0.004584193, y: -0.06691164, z: 0.019941017, w: 0.9975491}
-  m_LocalPosition: {x: -0.4715991, y: -0.49504584, z: -1.6894419}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1954307437}
@@ -1204,7 +1204,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -1280,7 +1292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248411234}
   m_LocalRotation: {x: 0.10043742, y: -0.69993734, z: 0.1004374, w: 0.6999374}
-  m_LocalPosition: {x: -3.3361518, y: 4.5662403, z: -1.8817558}
+  m_LocalPosition: {x: -1.5756733, y: 4.5662403, z: -2.3533552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 712452612}
@@ -1569,7 +1581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352219360}
   m_LocalRotation: {x: 0.04761293, y: 0.20040336, z: -0.055196553, w: 0.97699785}
-  m_LocalPosition: {x: 0.3822013, y: -0.18606462, z: -0.8317938}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 39105033}
@@ -1902,8 +1914,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511082631}
-  m_LocalRotation: {x: -0.3211406, y: 0.0749253, z: -0.011551949, w: -0.9439923}
-  m_LocalPosition: {x: -0.23865461, y: 0.012279373, z: -0.06947471}
+  m_LocalRotation: {x: -0.04617493, y: 0.07518442, z: 0.0097233495, w: -0.99605256}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 668395947}
@@ -1983,7 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 0.68, z: -0.92}
+  m_FollowOffset: {x: 0, y: 0.12, z: -0.97}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2103,7 +2115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527421518}
   m_LocalRotation: {x: 0.022027295, y: -0.020236105, z: 0.031853795, w: 0.99904495}
-  m_LocalPosition: {x: -0.00000011065746, y: -0.00000044021687, z: 0.00000027960894}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 635365696}
@@ -2160,7 +2172,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -2624,7 +2648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 0.68, z: -0.92}
+  m_FollowOffset: {x: 0, y: 0.12, z: -0.97}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2913,7 +2937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694070862}
   m_LocalRotation: {x: 0.04761293, y: 0.20040336, z: -0.055196553, w: 0.97699785}
-  m_LocalPosition: {x: 0.3822013, y: -0.18606466, z: -0.831794}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 921521772}
@@ -2987,7 +3011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712452610}
   m_LocalRotation: {x: 0.004584193, y: -0.06691164, z: 0.019941017, w: 0.9975491}
-  m_LocalPosition: {x: -0.4715991, y: -0.49504584, z: -1.6894419}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1542437761}
@@ -3673,7 +3697,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -4529,7 +4565,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -4605,7 +4653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072043736}
   m_LocalRotation: {x: 0.08540977, y: -0.20917448, z: -0.018343039, w: -0.97396857}
-  m_LocalPosition: {x: -3.8190832, y: 1.5399563, z: -4.112847}
+  m_LocalPosition: {x: -4.079062, y: 0.97995627, z: -4.127358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 511082633}
@@ -5550,8 +5598,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574727239}
-  m_LocalRotation: {x: -0.32065952, y: 0.07493106, z: -0.011513742, w: -0.9441558}
-  m_LocalPosition: {x: -0.23845005, y: 0.012032802, z: -0.07087825}
+  m_LocalRotation: {x: -0.04617493, y: 0.07518442, z: 0.0097233495, w: -0.99605256}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519868011}
@@ -5826,7 +5874,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -5863,7 +5923,7 @@ MonoBehaviour:
     m_InvertInput: 1
     m_MinValue: -180
     m_MaxValue: 180
-    m_Wrap: 1
+    m_Wrap: 0
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -5902,7 +5962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674068937}
   m_LocalRotation: {x: 0.07765628, y: -0.7027635, z: 0.07764148, w: 0.7028974}
-  m_LocalPosition: {x: -3.5013967, y: 4.2170043, z: -2.0423856}
+  m_LocalPosition: {x: -2.6489737, y: 4.2170043, z: -1.6603466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3038795}
@@ -6314,11 +6374,23 @@ MonoBehaviour:
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 3
+    m_BlendHint: 0
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 1
@@ -6531,7 +6603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826024197}
   m_LocalRotation: {x: 0.004584193, y: -0.06691164, z: 0.019941017, w: 0.9975491}
-  m_LocalPosition: {x: -0.4715991, y: -0.49504584, z: -1.6894419}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2080012706}
@@ -7078,8 +7150,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004925943}
-  m_LocalRotation: {x: -0.3206596, y: 0.074931055, z: -0.011513748, w: -0.9441559}
-  m_LocalPosition: {x: -0.23845005, y: 0.012032802, z: -0.07087825}
+  m_LocalRotation: {x: -0.04617493, y: 0.07518442, z: 0.0097233495, w: -0.99605256}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 80639359}
@@ -7136,7 +7208,19 @@ MonoBehaviour:
     m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1687258590}
+          m_TargetAssemblyTypeName: CameraMovement.CameraChanger, Assembly-CSharp
+          m_MethodName: EnableInheritPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0
@@ -10369,7 +10453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryItem: {fileID: 11400000, guid: d532c929277fc0142b7ef4b480854776, type: 2}
   _inventoryChannel: {fileID: 11400000, guid: aad901e53422e2948bc6055dd40fcb2b, type: 2}
-  _prefabForLook: {fileID: 0}
+  _prefabForLook: {fileID: 1943539342304676950, guid: 8d1fb3e2c82ab8146aa9dcc37ce38a8f, type: 3}
   _actionsAfterPickUp:
     m_PersistentCalls:
       m_Calls:

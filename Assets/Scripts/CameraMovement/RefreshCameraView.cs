@@ -40,7 +40,6 @@ namespace CameraMovement
         {
             if (_cinemachineBrain.ActiveVirtualCamera.Follow.TryGetComponent(out HasCamera hasCamera))
                 hasCamera.DisableInteractableObjects();
-            //TODO: Смена камеры с предмета на деволтную происходит не сразу
             CameraChanger.ChangeCamera(_cinemachineDefaultCamera);
         }
 

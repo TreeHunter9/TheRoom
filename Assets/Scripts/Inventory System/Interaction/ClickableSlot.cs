@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace Inventory_System
 {
     [RequireComponent(typeof(InventorySlotUIController))]
-    public class ClickableSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class ClickableSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
         [SerializeField] private InventoryCursorChannel _inventoryCursorChannel;
         
@@ -27,5 +27,7 @@ namespace Inventory_System
             if (eventData.dragging == false)
                 _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.InteractableItemData);
         }
+
+        public void OnDrag(PointerEventData eventData) { }
     }
 }

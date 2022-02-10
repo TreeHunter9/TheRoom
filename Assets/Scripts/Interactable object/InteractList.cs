@@ -10,6 +10,7 @@ namespace Interactable_object
 
         public void EnableInteractableObjects()
         {
+            _interactableObjectList.RemoveAll(item => item == null);
             foreach (var interactableObject in _interactableObjectList)
             {
                 interactableObject.tag = Constants.InteractableTag;
