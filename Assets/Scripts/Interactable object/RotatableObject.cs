@@ -1,17 +1,31 @@
 using System;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
 
 namespace Interactable_object
 {
+    [RequireComponent(typeof(PossiblePositions))]
     public class RotatableObject : InteractableObject
     {
-        [SerializeField] private Quaternion _endRotation;
+        [SerializeField] private bool _simpleRotation;
+        [SerializeField] private Vector3 _mouseXRotationAxis;
+        [SerializeField] private Vector3 _mouseYRotationAxis;
+
+        [Header("Rotation Range")] 
+        [SerializeField] private bool _wrap;
+        [SerializeField] private Vector3 _fromRotation;
+        [SerializeField] private Vector3 _toRotation;
+        [Space] 
+        [SerializeField] private bool _stopWhenOnPosition;
+        [Space]
         [Tooltip("Set axis to 1 if this object will rotate on this axis")]
         [SerializeField] private Vector3Int _rotationOnAxis;
 
+        private PossiblePositions _possiblePositions;
+
         private Quaternion _startRotation;
-        private Vector3 _startPosition;
 
         private GameObject _lookAtGO;
         private GameObject _planeForRaycast;
@@ -30,13 +44,17 @@ namespace Interactable_object
             _rotationOnAxis = _rotationOnAxis.Invert();
 
             _isUsingForKey = TryGetComponent(out KeyController keyController);
+            _possiblePositions = GetComponent<PossiblePositions>();
         }
 
         private void Update()
         {
             if (isActive == true)
             {
-                RotateObject();
+                if (_simpleRotation == true)
+                    RotateObjectSimple();
+                else
+                    RotateObject();
             }
         }
 
@@ -63,6 +81,18 @@ namespace Interactable_object
             Vector3 lookRotation = FindRotation();
             _lookAtGO.transform.rotation = Quaternion.RotateTowards( 
                 _lookAtGO.transform.rotation, Quaternion.Euler(lookRotation), 3);
+        }
+
+        private void RotateObjectSimple()
+        {
+            float rotX = Input.GetAxis("Mouse X");
+            float rotY = Input.GetAxis("Mouse Y");
+            float speedRotation = 4f;
+
+            Vector3 angle = (_mouseXRotationAxis * -rotX + _mouseYRotationAxis * rotY) * speedRotation;
+            //transform.Rotate(angle);
+            Quaternion newRotation = transform.localRotation * Quaternion.Euler(angle);
+            transform.localRotation = newRotation.Restrict(_fromRotation, _toRotation);
         }
 
         private void RotateGOForLookAt()
@@ -110,27 +140,31 @@ namespace Interactable_object
 
         public override void StartInteraction(Vector3 startPos = default)
         {
-            _planeForRaycast.transform.position = startPos;
-            _planeForRaycast.SetActive(true);
-            
-            _startPosition = startPos;
+            if (_simpleRotation == false)
+            {
+                _planeForRaycast.transform.position = startPos;
+                _planeForRaycast.SetActive(true);
 
-            RotateGOForLookAt();
-            transform.parent = _lookAtGO.transform;
+                RotateGOForLookAt();
+                transform.parent = _lookAtGO.transform;
+            }
 
             isActive = true;
         }
 
         public override void StopInteraction()
         {
-            if (_isUsingForKey == false && Quaternion.Angle(_endRotation, transform.rotation) <= 4.5f)
+            if (_isUsingForKey == false && _stopWhenOnPosition == false 
+                                        && _possiblePositions.TryCheckPositions(out var key))
             {
-                transform.rotation = _endRotation;
                 _actionOnComplete?.Invoke();
                 Destroy(this);
             }
-            transform.parent = _lookAtGO.transform.parent;
-            _planeForRaycast.SetActive(false);
+            if (_simpleRotation == false)
+            {
+                transform.parent = _lookAtGO.transform.parent;
+                _planeForRaycast.SetActive(false);
+            }
             isActive = false;
         }
     }
