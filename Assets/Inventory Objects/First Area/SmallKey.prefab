@@ -113,8 +113,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   FORSAVE: {x: 0, y: 0, z: 0}
-  _endRotation: {x: 0.54426265, y: -0.2940983, z: 0.44890937, w: 0.64479816}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 0
+  _fromRotation: {x: 0, y: 0, z: 0}
+  _toRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
   _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _invertZ: 1
 --- !u!114 &3598205988637703808
 MonoBehaviour:
   m_ObjectHideFlags: 0

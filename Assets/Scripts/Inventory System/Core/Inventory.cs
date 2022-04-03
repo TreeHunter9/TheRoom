@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Core
 {
     public class Inventory
     {

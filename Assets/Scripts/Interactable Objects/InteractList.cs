@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using TheRoom.Utilities;
 using UnityEngine;
-using Utilities;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     public class InteractList : MonoBehaviour
     {

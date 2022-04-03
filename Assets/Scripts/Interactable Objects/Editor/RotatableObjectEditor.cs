@@ -1,6 +1,7 @@
+using TheRoom.InteractableObjects;
 using UnityEditor;
 
-namespace Interactable_object.Editor
+namespace TheRoom.InteractableObjects.Editor
 {
     [CustomEditor(typeof(RotatableObject))]
     public class RotatableObjectEditor : UnityEditor.Editor
@@ -27,6 +28,8 @@ namespace Interactable_object.Editor
             
             if(simpleRotation.boolValue == false) 
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
+            
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertZ"));
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_actionOnComplete"));
 

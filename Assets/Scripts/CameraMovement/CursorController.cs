@@ -1,16 +1,17 @@
-using Interactable_object;
-using Inventory_System;
+using TheRoom.InteractableObjects;
+using TheRoom.InventorySystem.Core;
+using TheRoom.Utilities;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     public class CursorController : MonoBehaviour
     {
         private Camera _mainCamera;
         private Image _image;
         
-        private InventoryItem _item;
+        private InventoryItem _inventoryItem;
         private CursorHolder _cursorHolder;
 
         private Color _halfTransparent = new Color(1f, 1f, 1f, 0.5f);
@@ -25,13 +26,15 @@ namespace CameraMovement
 
         private void Update()
         {
+            bool itemIsFit = false;
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var hit))
             {
-                if (hit.transform.CompareTag(Utilities.Constants.NeededItemTag))
+                if (hit.transform.CompareTag(Constants.NeededItemTag))
                 {
                     ItemNeeded itemNeeded = hit.transform.GetComponent<ItemNeeded>();
-                    _image.color = itemNeeded.NeededItem == _item ? Color.white : _halfTransparent;
+                    itemIsFit = itemNeeded.NeededItemType == _inventoryItem.ItemType;
+                    _image.color = itemIsFit ? Color.white : _halfTransparent;
                 }
                 else
                 {
@@ -41,18 +44,34 @@ namespace CameraMovement
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (hit.distance > 0f && hit.transform.CompareTag(Utilities.Constants.NeededItemTag))
+                if (itemIsFit != true)
                 {
-                    ItemNeeded itemNeeded = hit.transform.GetComponent<ItemNeeded>();
+                    _cursorHolder.Clear();
+                    return;
+                }
+
+                ItemNeeded itemNeeded = hit.transform.GetComponent<ItemNeeded>();
+                if (itemNeeded.IsSimpleItem())
+                {
                     itemNeeded.SetupItem();
                 }
+                else
+                {
+                    StateOfInventoryItem stateOfInventoryItem =
+                        _inventoryItem.ItemGO.GetComponent<StateOfInventoryItem>();
+                    if (stateOfInventoryItem.Compare(itemNeeded.GetPositionsPair()) == true)
+                    {
+                        itemNeeded.SetupItem();
+                    }
+                }
+
                 _cursorHolder.Clear();
             }
         }
 
-        public void StartFindInteraction(InventoryItem item)
+        public void StartFindInteraction(InventoryItem itemType)
         {
-            _item = item;
+            _inventoryItem = itemType;
             this.enabled = true;
         }
     }

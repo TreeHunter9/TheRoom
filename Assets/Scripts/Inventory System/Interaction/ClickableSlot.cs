@@ -1,8 +1,9 @@
-using System;
+using TheRoom.InventorySystem.Controllers;
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Interaction
 {
     [RequireComponent(typeof(InventorySlotUIController))]
     public class ClickableSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
@@ -25,7 +26,7 @@ namespace Inventory_System
         public void OnPointerUp(PointerEventData eventData)
         {
             if (eventData.dragging == false)
-                _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.InteractableItemData);
+                _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.Item);
         }
 
         public void OnDrag(PointerEventData eventData) { }

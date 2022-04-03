@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     public class ButtonObject : InteractableObject
     {

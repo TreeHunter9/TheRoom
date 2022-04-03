@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utilities
+namespace TheRoom.Utilities
 {
     public static class Constants
     {

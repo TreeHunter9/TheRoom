@@ -1,8 +1,8 @@
 using Cinemachine;
+using TheRoom.InteractableObjects;
 using UnityEngine;
-using Interactable_object;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     [RequireComponent(typeof(InteractList))]
     public class HasCamera : MonoBehaviour

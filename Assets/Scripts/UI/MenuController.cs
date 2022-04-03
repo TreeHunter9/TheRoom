@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace UI
+namespace TheRoom.UI
 {
     public class MenuController : MonoBehaviour
     {

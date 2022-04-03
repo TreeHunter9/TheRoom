@@ -1,8 +1,9 @@
 using System;
-using Inventory_System;
+using TheRoom.InventorySystem.Controllers;
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     [RequireComponent(typeof(InventorySlotUIController), typeof(CursorController))]
     public class CursorHolder : MonoBehaviour

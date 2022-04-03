@@ -1,8 +1,7 @@
-using System;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     public class RefreshCameraView : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     public class KeyholeAction : MonoBehaviour
     {

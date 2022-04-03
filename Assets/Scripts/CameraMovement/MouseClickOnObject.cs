@@ -1,9 +1,10 @@
 using System;
 using Cinemachine;
-using Interactable_object;
+using TheRoom.InteractableObjects;
+using TheRoom.Utilities;
 using UnityEngine;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     public class MouseClickOnObject : MonoBehaviour
     {
@@ -59,7 +60,7 @@ namespace CameraMovement
                 Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit, 100f))
                 {
-                    if (hit.collider.CompareTag(Utilities.Constants.InteractableTag))
+                    if (hit.collider.CompareTag(Constants.InteractableTag))
                     {
                         if (hit.collider.TryGetComponent(out _interactableObject))
                         {

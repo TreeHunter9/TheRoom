@@ -1,8 +1,8 @@
-using CameraMovement;
+using TheRoom.CameraMovement;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace TheRoom.UI
 {
     public class SensitivityController : MonoBehaviour
     {

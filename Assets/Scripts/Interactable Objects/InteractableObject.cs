@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     public abstract class InteractableObject : MonoBehaviour
     {

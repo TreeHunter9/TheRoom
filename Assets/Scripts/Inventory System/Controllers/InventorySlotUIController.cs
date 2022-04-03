@@ -1,7 +1,8 @@
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Controllers
 {
     public class InventorySlotUIController : MonoBehaviour
     {
@@ -33,7 +34,7 @@ namespace Inventory_System
         {
             if (item != null)
             {
-                _image.sprite = _inventorySlot.Item.sprite;
+                _image.sprite = _inventorySlot.Item.Sprite;
                 _image.color = _spriteColor;
             }
             else

@@ -1,9 +1,8 @@
-using System;
 using Cinemachine;
-using Inventory_System;
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
 
-namespace CameraMovement
+namespace TheRoom.CameraMovement
 {
     [RequireComponent(typeof(CinemachineBrain))]
     public class CameraChanger : MonoBehaviour
@@ -40,12 +39,6 @@ namespace CameraMovement
             _cinemachineSave.Priority = 1;
             _cinemachineSave.m_Transitions.m_InheritPosition = false;
             _cinemachineSave = null;
-        }
-
-        public void EnableInheritPosition(ICinemachineCamera a, ICinemachineCamera b)
-        {
-            CinemachineFreeLook cinemachineFreeLook = (CinemachineFreeLook) a;
-            cinemachineFreeLook.m_Transitions.m_InheritPosition = true;
         }
     }
 }

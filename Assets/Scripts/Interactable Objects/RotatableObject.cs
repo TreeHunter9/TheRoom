@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
-using Unity.Mathematics;
+using TheRoom.Utilities;
+using UnityEditor;
 using UnityEngine;
-using Utilities;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     [RequireComponent(typeof(PossiblePositions))]
     public class RotatableObject : InteractableObject
@@ -22,6 +21,9 @@ namespace Interactable_object
         [Space]
         [Tooltip("Set axis to 1 if this object will rotate on this axis")]
         [SerializeField] private Vector3Int _rotationOnAxis;
+
+        [Tooltip("Если будет вращаться в противоположную сторону")]
+        [SerializeField] private bool _invertZ;
 
         private PossiblePositions _possiblePositions;
 
@@ -49,13 +51,18 @@ namespace Interactable_object
 
         private void Update()
         {
-            if (isActive == true)
-            {
-                if (_simpleRotation == true)
-                    RotateObjectSimple();
-                else
-                    RotateObject();
-            }
+            if (isActive == false) 
+                return;
+            
+            if (_simpleRotation == true)
+                RotateObjectSimple();
+            else
+                RotateObject();
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawLine(a1, a2);
         }
 
         private void CreateGOForLookAt()
@@ -107,7 +114,10 @@ namespace Interactable_object
             Vector3 direction, lookRotation;
             if (Physics.Raycast(ray, out RaycastHit hit, 1000f, 1 << Constants.PlaneLayer))
             {
-                direction = hit.point - _lookAtGO.transform.position;
+                a1 = hit.point;
+                a2 = _lookAtGO.transform.position;
+                Vector3 localHit = _lookAtGO.transform.parent.InverseTransformPoint(hit.point);
+                direction = (localHit - _lookAtGO.transform.localPosition).normalized;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
             else
@@ -115,26 +125,32 @@ namespace Interactable_object
                 direction = _mainCamera.transform.position + ray.direction * 1000f - _lookAtGO.transform.position;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
-            print(lookRotation);
+            print(direction);
+            float lookRotationZ = _invertZ
+                ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
+                : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             lookRotation.x = _rotationOnAxis.x == 1 ? lookRotation.x :_startRotation.eulerAngles.x;
             lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
-            lookRotation.z = _rotationOnAxis.z == 1 ? lookRotation.z :_startRotation.eulerAngles.z;
+            lookRotation.z = _rotationOnAxis.z == 1 ? lookRotationZ :_startRotation.eulerAngles.z;
+            //lookRotation.z = _rotationOnAxis.z == 1 ? lookRotation.z :_startRotation.eulerAngles.z;
             return lookRotation;
         }
+
+        private Vector3 a1, a2;
 
         private Vector3 FindLookRotation(Vector3Int vector3Int, Vector3 direction)
         {
             if (vector3Int.x == 1)
             {
-                return Quaternion.LookRotation(direction, Vector3.up).eulerAngles;
+                return Quaternion.LookRotation(direction, Vector3.up).normalized.eulerAngles;
             }
             else if (vector3Int.y == 1)
             {
-                return Quaternion.LookRotation(direction, Vector3.up).eulerAngles;
+                return Quaternion.LookRotation(direction, Vector3.up).normalized.eulerAngles;
             }
             else
             {
-                return Quaternion.LookRotation(Vector3.forward, direction).eulerAngles;
+                return Quaternion.LookRotation(Vector3.forward, direction).normalized.eulerAngles;
             }
         }
 
@@ -154,8 +170,9 @@ namespace Interactable_object
 
         public override void StopInteraction()
         {
+            bool isOnPosition = _possiblePositions.TryCheckPositions(_simpleRotation);
             if (_isUsingForKey == false && _stopWhenOnPosition == false 
-                                        && _possiblePositions.TryCheckPositions(out var key))
+                                        && isOnPosition == true)
             {
                 _actionOnComplete?.Invoke();
                 Destroy(this);
@@ -167,5 +184,7 @@ namespace Interactable_object
             }
             isActive = false;
         }
+        
+        //TODO: Заебала уже эта ебатория с вращением объекта
     }
 }

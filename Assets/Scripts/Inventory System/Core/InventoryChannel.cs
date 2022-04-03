@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Core
 {
     [CreateAssetMenu(menuName = "Inventory/Channels/InventoryChannel")]
     public class InventoryChannel : ScriptableObject
     {
-        public event Action<InventoryItem, GameObject> onInventoryItemLoot;
+        public event Action<InventoryItemType, GameObject> onInventoryItemLoot;
 
-        public void RaiseLootItemEvent(InventoryItem item, GameObject itemGO)
+        public void RaiseLootItemEvent(InventoryItemType itemType, GameObject itemGO)
         {
-            onInventoryItemLoot?.Invoke(item, itemGO);
+            onInventoryItemLoot?.Invoke(itemType, itemGO);
         }
     }
 }

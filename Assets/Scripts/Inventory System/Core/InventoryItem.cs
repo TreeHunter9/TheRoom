@@ -1,12 +1,27 @@
+﻿using Cinemachine;
 using UnityEngine;
-using Cinemachine;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Core
 {
-    [CreateAssetMenu(menuName = "Inventory/InventoryItem")]
-    public class InventoryItem : ScriptableObject
+    public class InventoryItem
     {
-        public GameObject gameObject;
-        public Sprite sprite;
+        private InventoryItemType _itemType;
+        private GameObject _itemGO;
+        private CinemachineFreeLook _cinemachineFreeLook;
+
+        public InventoryItem(InventoryItemType itemType, GameObject itemGO, CinemachineFreeLook cinemachineFreeLook)
+        {
+            _itemType = itemType;
+            _itemGO = itemGO;
+            _cinemachineFreeLook = cinemachineFreeLook;
+        }
+
+        public InventoryItemType ItemType => _itemType;
+
+        public GameObject ItemGO => _itemGO;
+        
+        public CinemachineFreeLook CinemachineFreeLook => _cinemachineFreeLook;
+
+        public Sprite Sprite => _itemType.sprite;
     }
 }

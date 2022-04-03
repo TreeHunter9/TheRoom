@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Animation
+namespace TheRoom.Animation
 {
     public class SimpleAnimation : MonoBehaviour
     {

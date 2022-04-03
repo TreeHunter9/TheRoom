@@ -1,8 +1,6 @@
-using CameraMovement;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     public class MovableObject : InteractableObject
     {

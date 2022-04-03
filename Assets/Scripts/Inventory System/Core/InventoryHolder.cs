@@ -1,8 +1,7 @@
-using System;
 using Cinemachine;
 using UnityEngine;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Core
 {
     public class InventoryHolder : MonoBehaviour
     {
@@ -26,11 +25,15 @@ namespace Inventory_System
             _inventoryChannel.onInventoryItemLoot -= InventoryItemLoot;
         }
 
-        private void InventoryItemLoot(InventoryItem item, GameObject itemGO)
+        private void InventoryItemLoot(InventoryItemType itemType, GameObject itemGO)
         {
             InventorySlot slot = _inventory.FindEmptySlot();
-            slot.SetData(item, new InteractableItem(
-                itemGO, itemGO.GetComponentInChildren<CinemachineFreeLook>()));
+            slot.Item = new InventoryItem
+            (
+                itemType,
+                itemGO,
+                itemGO.GetComponentInChildren<CinemachineFreeLook>()
+            );
         }
     }
 }

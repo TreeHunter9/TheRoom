@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interactable_object
+namespace TheRoom.InteractableObjects
 {
     [RequireComponent(typeof(RotatableObject))]
     public class KeyController : MonoBehaviour
@@ -30,11 +30,15 @@ namespace Interactable_object
             this.enabled = false;
         }
 
+        private void OnDestroy()
+        {
+            _rotatableObjectScript.onChangeActive -= active => this.enabled = active;
+        }
+
         private void Update()
         {
             _currentFrameRotation = transform.rotation;
             _currentAngle += CalculateRotationAngle();
-            print(_currentAngle);
             if (Mathf.Abs(_currentAngle) >= _rotateOnAngle)
                 Done();
             _lastFrameRotation = transform.rotation;
@@ -49,10 +53,8 @@ namespace Interactable_object
                     ? angle
                     : angle * -1;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         private void Done()

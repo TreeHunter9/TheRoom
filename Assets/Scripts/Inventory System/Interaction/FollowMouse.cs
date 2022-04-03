@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Interaction
 {
     public class FollowMouse : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-using System;
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Controllers
 {
     public class InventoryUIController : MonoBehaviour
     {

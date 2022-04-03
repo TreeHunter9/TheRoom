@@ -1,41 +1,27 @@
 using System;
 
-namespace Inventory_System
+namespace TheRoom.InventorySystem.Core
 {
     public class InventorySlot
     {
-        private InventoryItem _item;
-        private InteractableItem _interactableItem;
+        private InventoryItem _inventoryItem;
 
         public event Action<InventoryItem> onItemChange;
 
         public InventoryItem Item
         {
-            get => _item;
+            get => _inventoryItem;
             set
             {
-                _item = value;
-                onItemChange?.Invoke(_item);
+                _inventoryItem = value;
+                onItemChange?.Invoke(_inventoryItem);
             }
-        }
-
-        public InteractableItem InteractableItemData
-        {
-            get => _interactableItem;
-            set => _interactableItem = value;
         }
 
         public void Clear()
         {
-            _item = null;
-            _interactableItem = null;
-            onItemChange?.Invoke(_item);
-        }
-
-        public void SetData(InventoryItem item, InteractableItem interactableItem)
-        {
-            Item = item;
-            InteractableItemData = interactableItem;
+            _inventoryItem = null;
+            onItemChange?.Invoke(null);
         }
     }
 }
