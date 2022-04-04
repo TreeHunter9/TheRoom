@@ -17,7 +17,7 @@ namespace TheRoom.InteractableObjects
         {
             yAxisCoordinate += 30f;
             Vector3 pos = new Vector3(1000, yAxisCoordinate, 1000);
-            return Instantiate(inventoryItemType.gameObjectForSpawn, pos, inventoryItemType.gameObjectForSpawn.transform.rotation);
+            return Instantiate(inventoryItemType.prefabForLook, pos, inventoryItemType.prefabForLook.transform.rotation);
         }
 
         public void TakeItem()

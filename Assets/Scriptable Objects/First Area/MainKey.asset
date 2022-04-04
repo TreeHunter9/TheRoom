@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123452e154e46b4b9680ed85bcab152, type: 3}
   m_Name: MainKey
   m_EditorClassIdentifier: 
-  gameObjectForSpawn: {fileID: 1943539342304676950, guid: 8d1fb3e2c82ab8146aa9dcc37ce38a8f, type: 3}
-  gameObjectForInteraction: {fileID: 4159938276423237644, guid: 6c961bd22ae5e2d40b059dffc1b3bb4d, type: 3}
+  prefabForInteraction: {fileID: 4159938276423237644, guid: 6c961bd22ae5e2d40b059dffc1b3bb4d, type: 3}
+  prefabForLook: {fileID: 1943539342304676950, guid: 8d1fb3e2c82ab8146aa9dcc37ce38a8f, type: 3}
   sprite: {fileID: 21300000, guid: f38c9eea5e31b8a409fcdbc4794522aa, type: 3}
