@@ -1,4 +1,5 @@
 using UnityEngine;
+using TheRoom.Utilities;
 
 namespace TheRoom.InteractableObjects
 {
@@ -20,7 +21,14 @@ namespace TheRoom.InteractableObjects
 
         private void Awake()
         {
-            _keyhole = transform.parent;
+            _keyhole = transform.parent.parent;
+            if (_rotateWithKeyhole == true)
+            {
+                
+                transform.SetParent(transform.parent.parent.parent);
+                _keyhole.SetParent(transform);
+                print(_keyhole.name);
+            }
             _rotatableObjectScript = GetComponent<RotatableObject>();
             _rotatableObjectScript.onChangeActive += active => this.enabled = active;
 
@@ -46,15 +54,10 @@ namespace TheRoom.InteractableObjects
 
         private float CalculateRotationAngle()
         {
-            if (_rotateWithKeyhole == false)
-            {
-                float angle = Quaternion.Angle(_currentFrameRotation, _lastFrameRotation);
-                return _currentFrameRotation.eulerAngles.z - _lastFrameRotation.eulerAngles.z > 0
-                    ? angle
-                    : angle * -1;
-            }
-
-            return 0;
+            float angle = Quaternion.Angle(_currentFrameRotation, _lastFrameRotation);
+            return _currentFrameRotation.eulerAngles.z - _lastFrameRotation.eulerAngles.z > 0
+                ? angle
+                : angle * -1;
         }
 
         private void Done()
@@ -64,4 +67,5 @@ namespace TheRoom.InteractableObjects
             Destroy(gameObject);
         }
     }
+    //TODO: Подкорректировать модель маленького ключа, gizmo указывает криво(переделать в blender)
 }

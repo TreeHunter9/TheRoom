@@ -39,8 +39,7 @@ namespace TheRoom.InteractableObjects
         public void SetupItem()
         {
             GameObject keyGO = Instantiate(_key.prefabForInteraction, _keyTransform.position, 
-                _keyTransform.rotation, transform);
-            keyGO.transform.localScale = _keyTransform.localScale;
+                _keyTransform.rotation, _keyTransform);
         }
     }
 }

@@ -25,6 +25,8 @@ namespace TheRoom.InteractableObjects
         [Tooltip("Если будет вращаться в противоположную сторону")]
         [SerializeField] private bool _invertZ;
 
+        [SerializeField] private bool _changeRotationZ;
+
         private PossiblePositions _possiblePositions;
 
         private Quaternion _startRotation;
@@ -38,15 +40,18 @@ namespace TheRoom.InteractableObjects
         {
             _mainCamera = Camera.main;
             _startRotation = transform.rotation;
+            _isUsingForKey = TryGetComponent(out KeyController keyController);
+            _possiblePositions = GetComponent<PossiblePositions>();
+        }
+
+        private void Start()
+        {
             _rotationOnAxis = _rotationOnAxis.Invert();
             
             CreateGOForLookAt();
             CreatePlaneForRaycast();
-            
-            _rotationOnAxis = _rotationOnAxis.Invert();
 
-            _isUsingForKey = TryGetComponent(out KeyController keyController);
-            _possiblePositions = GetComponent<PossiblePositions>();
+            _rotationOnAxis = _rotationOnAxis.Invert();
         }
 
         private void Update()
@@ -59,12 +64,7 @@ namespace TheRoom.InteractableObjects
             else
                 RotateObject();
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawLine(a1, a2);
-        }
-
+        
         private void CreateGOForLookAt()
         {
             _lookAtGO = new GameObject("ForRotationGO");
@@ -114,8 +114,6 @@ namespace TheRoom.InteractableObjects
             Vector3 direction, lookRotation;
             if (Physics.Raycast(ray, out RaycastHit hit, 1000f, 1 << Constants.PlaneLayer))
             {
-                a1 = hit.point;
-                a2 = _lookAtGO.transform.position;
                 Vector3 localHit = _lookAtGO.transform.parent.InverseTransformPoint(hit.point);
                 direction = (localHit - _lookAtGO.transform.localPosition).normalized;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
@@ -125,10 +123,7 @@ namespace TheRoom.InteractableObjects
                 direction = _mainCamera.transform.position + ray.direction * 1000f - _lookAtGO.transform.position;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
-            print(direction);
-            float lookRotationZ = _invertZ
-                ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
-                : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            float lookRotationZ = FindLookRotationZ(direction);
             lookRotation.x = _rotationOnAxis.x == 1 ? lookRotation.x :_startRotation.eulerAngles.x;
             lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
             lookRotation.z = _rotationOnAxis.z == 1 ? lookRotationZ :_startRotation.eulerAngles.z;
@@ -136,8 +131,19 @@ namespace TheRoom.InteractableObjects
             return lookRotation;
         }
 
-        private Vector3 a1, a2;
-
+        private float FindLookRotationZ(Vector3 direction)
+        {
+            if (_changeRotationZ == true)
+            {
+                return _invertZ
+                    ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
+                    : Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+            }
+            return _invertZ
+                ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
+                : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        }
+        
         private Vector3 FindLookRotation(Vector3Int vector3Int, Vector3 direction)
         {
             if (vector3Int.x == 1)

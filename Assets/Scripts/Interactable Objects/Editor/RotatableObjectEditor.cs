@@ -30,7 +30,7 @@ namespace TheRoom.InteractableObjects.Editor
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertZ"));
-            
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_changeRotationZ"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_actionOnComplete"));
 
             serializedObject.ApplyModifiedProperties();
