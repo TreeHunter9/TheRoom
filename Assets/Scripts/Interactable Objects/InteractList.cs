@@ -6,7 +6,7 @@ namespace TheRoom.InteractableObjects
 {
     public class InteractList : MonoBehaviour
     {
-        [SerializeField] private List<InteractableObject> _interactableObjectList;
+        [SerializeField] private List<GameObject> _interactableObjectList;
 
         public void EnableInteractableObjects()
         {

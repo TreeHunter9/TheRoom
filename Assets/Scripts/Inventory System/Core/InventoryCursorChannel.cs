@@ -8,15 +8,12 @@ namespace TheRoom.InventorySystem.Core
     {
         public event Action<InventoryItem> onItemSlotHold;
         public event Action<InventoryItem> onItemSlotClick;
+        public event Action onItemSlotDown;
 
-        public void RaiseItemSlotHoldEvent(InventoryItem item)
-        {
-            onItemSlotHold?.Invoke(item);
-        }
+        public void RaiseItemSlotHoldEvent(InventoryItem item) => onItemSlotHold?.Invoke(item);
 
-        public void RaiseItemSlotClickEvent(InventoryItem item)
-        {
-            onItemSlotClick?.Invoke(item);
-        }
+        public void RaiseItemSlotClickEvent(InventoryItem item) => onItemSlotClick?.Invoke(item);
+
+        public void RaiseItemSlotDownEvent() => onItemSlotDown?.Invoke();
     }
 }

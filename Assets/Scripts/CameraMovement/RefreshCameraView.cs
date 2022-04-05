@@ -1,11 +1,15 @@
 using Cinemachine;
+using TheRoom.InventorySystem.Core;
 using UnityEngine;
+using Zenject;
 
 namespace TheRoom.CameraMovement
 {
     public class RefreshCameraView : MonoBehaviour
     {
         [SerializeField] private CinemachineFreeLook _cinemachineDefaultCamera;
+
+        [Inject] private InventoryCursorChannel _inventoryCursorChannel;
 
         private CinemachineBrain _cinemachineBrain;
 
@@ -15,16 +19,15 @@ namespace TheRoom.CameraMovement
             
             MouseClickOnObject.onStartInteractionWithObject += Disable;
             MouseClickOnObject.onStopInteractionWithObject += Enable;
-            CursorHolder.onStartDragItem += Disable;
-            CursorHolder.onStopDragItem += Enable;
+            _inventoryCursorChannel.onItemSlotHold += item => Disable();
+            _inventoryCursorChannel.onItemSlotDown += Enable;
         }
 
         private void OnDestroy()
         {
             MouseClickOnObject.onStartInteractionWithObject -= Disable;
             MouseClickOnObject.onStopInteractionWithObject -= Enable;
-            CursorHolder.onStartDragItem -= Disable;
-            CursorHolder.onStopDragItem -= Enable;
+            _inventoryCursorChannel.onItemSlotDown -= Enable;
         }
 
         private void Update()

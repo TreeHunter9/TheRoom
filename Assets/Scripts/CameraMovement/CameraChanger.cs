@@ -1,13 +1,14 @@
 using Cinemachine;
 using TheRoom.InventorySystem.Core;
 using UnityEngine;
+using Zenject;
 
 namespace TheRoom.CameraMovement
 {
     [RequireComponent(typeof(CinemachineBrain))]
     public class CameraChanger : MonoBehaviour
     {
-        [SerializeField] private InventoryCursorChannel _inventoryCursorChannel;
+        [Inject] private InventoryCursorChannel _inventoryCursorChannel;
         
         private static CinemachineBrain _cinemachineBrain;
         private static CinemachineFreeLook _cinemachineSave;

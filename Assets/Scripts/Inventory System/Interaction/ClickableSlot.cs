@@ -2,13 +2,14 @@ using TheRoom.InventorySystem.Controllers;
 using TheRoom.InventorySystem.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace TheRoom.InventorySystem.Interaction
 {
     [RequireComponent(typeof(InventorySlotUIController))]
     public class ClickableSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
-        [SerializeField] private InventoryCursorChannel _inventoryCursorChannel;
+        [Inject] private InventoryCursorChannel _inventoryCursorChannel;
         
         private InventorySlotUIController _slotUIController;
 
@@ -27,6 +28,8 @@ namespace TheRoom.InventorySystem.Interaction
         {
             if (eventData.dragging == false)
                 _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.Item);
+            else
+                _inventoryCursorChannel.RaiseItemSlotDownEvent();
         }
 
         public void OnDrag(PointerEventData eventData) { }

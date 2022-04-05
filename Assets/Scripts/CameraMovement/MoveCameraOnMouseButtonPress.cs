@@ -1,6 +1,8 @@
 using Cinemachine;
+using TheRoom.InventorySystem.Core;
 using TheRoom.UI;
 using UnityEngine;
+using Zenject;
 
 namespace TheRoom.CameraMovement
 {
@@ -8,6 +10,8 @@ namespace TheRoom.CameraMovement
     {
         [Range(0.1f, 10f)]
         [SerializeField] private float _sensitivity = 2f;
+
+        [Inject] private InventoryCursorChannel _inventoryCursorChannel;
         
         private bool _canMove = true;
         private CinemachineBrain _cinemachineBrain;
@@ -26,20 +30,19 @@ namespace TheRoom.CameraMovement
         {
             MouseClickOnObject.onStartInteractionWithObject += StopMovement;
             MouseClickOnObject.onStopInteractionWithObject += StartMovement;
-            CursorHolder.onStartDragItem += StopMovement;
-            CursorHolder.onStopDragItem += StartMovement;
             MenuController.onMenuEnable += StopMovement;
             MenuController.onMenuDisable += StartMovement;
+            _inventoryCursorChannel.onItemSlotHold += item => StopMovement();
+            _inventoryCursorChannel.onItemSlotDown += StartMovement;
         }
 
         private void OnDisable()
         {
             MouseClickOnObject.onStartInteractionWithObject -= StopMovement;
             MouseClickOnObject.onStopInteractionWithObject -= StartMovement;
-            CursorHolder.onStartDragItem -= StopMovement;
-            CursorHolder.onStopDragItem -= StartMovement;
             MenuController.onMenuEnable -= StopMovement;
             MenuController.onMenuDisable -= StartMovement;
+            _inventoryCursorChannel.onItemSlotDown -= StartMovement;
         }
 
         private float GetAxis(string axisName)

@@ -1,12 +1,14 @@
 using Cinemachine;
 using UnityEngine;
+using Zenject;
 
 namespace TheRoom.InventorySystem.Core
 {
     public class InventoryHolder : MonoBehaviour
     {
         [SerializeField] private int _slotsCount;
-        [SerializeField] private InventoryChannel _inventoryChannel;
+        
+        [Inject] private InventoryChannel _inventoryChannel;
 
         private Inventory _inventory = new Inventory();
         public Inventory Inventory => _inventory;
