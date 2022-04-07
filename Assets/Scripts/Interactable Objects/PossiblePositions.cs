@@ -13,6 +13,7 @@ namespace TheRoom.InteractableObjects
     public class PossiblePositions : MonoBehaviour
     {
         [SerializeField] private int _objectID;
+        [SerializeField] private float _allowedAngleForMagnit = 4.5f;
         [SerializeField] private Positions[] _positions;
 
         private Pair<int, int> _currentPositionPair;
@@ -29,7 +30,7 @@ namespace TheRoom.InteractableObjects
                 Quaternion currentRotation = isSimpleRotation
                     ? transform.localRotation
                     : transform.parent.rotation * transform.localRotation;
-                if (Quaternion.Angle(currentRotation, pos.value) <= 4.5f)
+                if (Quaternion.Angle(currentRotation, pos.value) <= _allowedAngleForMagnit)
                 {
                     if (isSimpleRotation == true)
                         transform.localRotation = pos.value;

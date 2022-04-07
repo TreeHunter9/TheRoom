@@ -24,6 +24,8 @@ namespace TheRoom.InteractableObjects
 
         [Tooltip("Если будет вращаться в противоположную сторону")]
         [SerializeField] private bool _invertZ;
+        [SerializeField] private bool _invertY;
+        [SerializeField] private bool _invertX;
 
         [SerializeField] private bool _changeRotationZ;
 
@@ -35,6 +37,7 @@ namespace TheRoom.InteractableObjects
         private GameObject _planeForRaycast;
 
         private bool _isUsingForKey;
+
 
         private void Awake()
         {
@@ -123,12 +126,40 @@ namespace TheRoom.InteractableObjects
                 direction = _mainCamera.transform.position + ray.direction * 1000f - _lookAtGO.transform.position;
                 lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
-            float lookRotationZ = FindLookRotationZ(direction);
-            lookRotation.x = _rotationOnAxis.x == 1 ? lookRotation.x :_startRotation.eulerAngles.x;
-            lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
-            lookRotation.z = _rotationOnAxis.z == 1 ? lookRotationZ :_startRotation.eulerAngles.z;
+            //lookRotation.x = _rotationOnAxis.x == 1 ? lookRotation.x :_startRotation.eulerAngles.x;
+            //lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
             //lookRotation.z = _rotationOnAxis.z == 1 ? lookRotation.z :_startRotation.eulerAngles.z;
+            lookRotation.x = _rotationOnAxis.x == 1 ? FindLookRotationX(direction) :_startRotation.eulerAngles.x;
+            lookRotation.y = _rotationOnAxis.y == 1 ? FindLookRotationY(direction) :_startRotation.eulerAngles.y;
+            lookRotation.z = _rotationOnAxis.z == 1 ? FindLookRotationZ(direction) :_startRotation.eulerAngles.z;
             return lookRotation;
+        }
+        
+        //TODO: отрефакторить!!!
+        private float FindLookRotationX(Vector3 direction)
+        {
+            if (_changeRotationZ == true)
+            {
+                return _invertX
+                    ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
+                    : Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+            }
+            return _invertX
+                ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
+                : Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+        }
+
+        private float FindLookRotationY(Vector3 direction)
+        {
+            if (_changeRotationZ == true)
+            {
+                return _invertY
+                    ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
+                    : Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+            }
+            return _invertY
+                ? Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg
+                : Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         }
 
         private float FindLookRotationZ(Vector3 direction)
@@ -143,7 +174,7 @@ namespace TheRoom.InteractableObjects
                 ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
                 : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         }
-        
+
         private Vector3 FindLookRotation(Vector3Int vector3Int, Vector3 direction)
         {
             if (vector3Int.x == 1)
@@ -177,7 +208,7 @@ namespace TheRoom.InteractableObjects
         public override void StopInteraction()
         {
             bool isOnPosition = _possiblePositions.TryCheckPositions(_simpleRotation);
-            if (_isUsingForKey == false && _stopWhenOnPosition == false 
+            if (_isUsingForKey == false && _stopWhenOnPosition == true 
                                         && isOnPosition == true)
             {
                 _actionOnComplete?.Invoke();
@@ -190,7 +221,5 @@ namespace TheRoom.InteractableObjects
             }
             isActive = false;
         }
-        
-        //TODO: Заебала уже эта ебатория с вращением объекта
     }
 }
