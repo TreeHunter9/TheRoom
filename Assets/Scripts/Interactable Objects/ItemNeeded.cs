@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TheRoom.InventorySystem.Core;
 using TheRoom.Utilities;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheRoom.InteractableObjects
 {
@@ -27,6 +28,8 @@ namespace TheRoom.InteractableObjects
         
         [Header("Position and Rotation for Item")] 
         [SerializeField] private Transform _keyTransform;
+        [Space]
+        [SerializeField] private UnityEvent _actionsWhenItemIsSetup;
 
         public InventoryItemType NeededItemType => _key;
 
@@ -40,6 +43,7 @@ namespace TheRoom.InteractableObjects
         {
             GameObject keyGO = Instantiate(_key.prefabForInteraction, _keyTransform.position, 
                 _keyTransform.rotation, _keyTransform);
+            _actionsWhenItemIsSetup?.Invoke();
         }
     }
 }

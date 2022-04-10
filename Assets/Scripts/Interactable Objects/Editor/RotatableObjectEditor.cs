@@ -25,10 +25,13 @@ namespace TheRoom.InteractableObjects.Editor
             }
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_stopWhenOnPosition"));
-            
-            if(simpleRotation.boolValue == false) 
+
+            if (simpleRotation.boolValue == false)
+            {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
-            
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_speedRotation"));
+            }
+
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertX"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertY"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertZ"));

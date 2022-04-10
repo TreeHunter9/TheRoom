@@ -121,7 +121,11 @@ MonoBehaviour:
   _toRotation: {x: 0, y: 0, z: 0}
   _stopWhenOnPosition: 0
   _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 3
   _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationZ: 0
 --- !u!114 &3598205988637703808
 MonoBehaviour:
   m_ObjectHideFlags: 0

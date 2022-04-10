@@ -37,7 +37,6 @@ namespace TheRoom.CameraMovement
 
         private void Update()
         {
-            print(_image.color.a);
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var hit))
             {
@@ -49,6 +48,8 @@ namespace TheRoom.CameraMovement
                     return;
                 }
             }
+
+            _itemIsFit = false;
             _image.color = _halfTransparent;
         }
 

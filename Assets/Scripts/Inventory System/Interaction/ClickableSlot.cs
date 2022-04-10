@@ -28,8 +28,7 @@ namespace TheRoom.InventorySystem.Interaction
         {
             if (eventData.dragging == false)
                 _inventoryCursorChannel.RaiseItemSlotClickEvent(_slotUIController.InventorySlot.Item);
-            else
-                _inventoryCursorChannel.RaiseItemSlotDownEvent();
+            _inventoryCursorChannel.RaiseItemSlotDownEvent();
         }
 
         public void OnDrag(PointerEventData eventData) { }

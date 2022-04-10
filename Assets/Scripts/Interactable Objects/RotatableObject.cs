@@ -21,6 +21,7 @@ namespace TheRoom.InteractableObjects
         [Space]
         [Tooltip("Set axis to 1 if this object will rotate on this axis")]
         [SerializeField] private Vector3Int _rotationOnAxis;
+        [SerializeField] private float _speedRotation = 3f;
 
         [Tooltip("Если будет вращаться в противоположную сторону")]
         [SerializeField] private bool _invertZ;
@@ -90,7 +91,7 @@ namespace TheRoom.InteractableObjects
         {
             Vector3 lookRotation = FindRotation();
             _lookAtGO.transform.rotation = Quaternion.RotateTowards( 
-                _lookAtGO.transform.rotation, Quaternion.Euler(lookRotation), 3);
+                _lookAtGO.transform.rotation, Quaternion.Euler(lookRotation), _speedRotation);
         }
 
         private void RotateObjectSimple()

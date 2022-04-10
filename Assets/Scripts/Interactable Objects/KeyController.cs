@@ -27,7 +27,6 @@ namespace TheRoom.InteractableObjects
                 
                 transform.SetParent(transform.parent.parent.parent);
                 _keyhole.SetParent(transform);
-                print(_keyhole.name);
             }
             _rotatableObjectScript = GetComponent<RotatableObject>();
             _rotatableObjectScript.onChangeActive += active => this.enabled = active;

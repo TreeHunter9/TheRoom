@@ -18,6 +18,8 @@ namespace TheRoom.InteractableObjects
 
         private Pair<int, int> _currentPositionPair;
 
+        public event Action onPosition;  
+
         private void Awake()
         {
             _currentPositionPair = new Pair<int, int>(_objectID, -1);
@@ -37,6 +39,7 @@ namespace TheRoom.InteractableObjects
                     else
                         transform.rotation = pos.value;
                     _currentPositionPair.value = pos.key;
+                    onPosition?.Invoke();
                     return true;
                 }
             }

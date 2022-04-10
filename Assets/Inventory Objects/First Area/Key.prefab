@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectID: 0
+  _allowedAngleForMagnit: 4.5
   _positions: []
 --- !u!114 &6132058417494990445
 MonoBehaviour:
@@ -106,7 +107,11 @@ MonoBehaviour:
   _toRotation: {x: 0, y: 0, z: 0}
   _stopWhenOnPosition: 0
   _rotationOnAxis: {x: 0, y: 0, z: 1}
-  _invertZ: 0
+  _speedRotation: 3
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationZ: 0
 --- !u!114 &4804308797857604032
 MonoBehaviour:
   m_ObjectHideFlags: 0

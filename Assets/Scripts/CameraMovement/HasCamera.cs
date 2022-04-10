@@ -31,14 +31,14 @@ namespace TheRoom.CameraMovement
         {
             if (_hasCollider == true)
                 _collider.enabled = true;
-            _interactList?.DisableInteractableObjects();
+            _interactList.DisableObjects();
         }
 
         private void EnableInteractableObjects()
         {
             if (_hasCollider == true)
                 _collider.enabled = false;
-            _interactList?.EnableInteractableObjects();
+            _interactList.EnableObjects();
         }
     }
 }
