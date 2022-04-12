@@ -12,14 +12,10 @@ namespace TheRoom.CameraMovement
         [SerializeField] private float _sensitivity = 2f;
 
         [Inject] private InventoryCursorChannel _inventoryCursorChannel;
+
+        [Inject] private CinemachineBrain _cinemachineBrain;
         
         private bool _canMove = true;
-        private CinemachineBrain _cinemachineBrain;
-
-        private void Awake()
-        {
-            _cinemachineBrain = GetComponent<CinemachineBrain>();
-        }
 
         private void Start()
         {

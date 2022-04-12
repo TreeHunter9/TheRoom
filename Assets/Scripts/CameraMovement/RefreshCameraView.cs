@@ -11,12 +11,10 @@ namespace TheRoom.CameraMovement
 
         [Inject] private InventoryCursorChannel _inventoryCursorChannel;
 
-        private CinemachineBrain _cinemachineBrain;
+        [Inject] private CinemachineBrain _cinemachineBrain;
 
         private void Awake()
         {
-            _cinemachineBrain = GetComponent<CinemachineBrain>();
-            
             MouseClickOnObject.onStartInteractionWithObject += Disable;
             MouseClickOnObject.onStopInteractionWithObject += Enable;
             _inventoryCursorChannel.onItemSlotHold += item => Disable();
@@ -42,7 +40,7 @@ namespace TheRoom.CameraMovement
         {
             if (_cinemachineBrain.ActiveVirtualCamera.Follow.TryGetComponent(out HasCamera hasCamera))
                 hasCamera.DisableInteractableObjects();
-            CameraChanger.ChangeCamera(_cinemachineDefaultCamera);
+            CinemachineCameraHelper.RefreshCamera(_cinemachineDefaultCamera);
         }
 
         private void Disable() => this.enabled = false;

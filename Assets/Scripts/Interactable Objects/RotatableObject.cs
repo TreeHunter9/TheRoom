@@ -120,16 +120,11 @@ namespace TheRoom.InteractableObjects
             {
                 Vector3 localHit = _lookAtGO.transform.parent.InverseTransformPoint(hit.point);
                 direction = (localHit - _lookAtGO.transform.localPosition).normalized;
-                lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
             else
             {
                 direction = _mainCamera.transform.position + ray.direction * 1000f - _lookAtGO.transform.position;
-                lookRotation = FindLookRotation(_rotationOnAxis, direction);
             }
-            //lookRotation.x = _rotationOnAxis.x == 1 ? lookRotation.x :_startRotation.eulerAngles.x;
-            //lookRotation.y = _rotationOnAxis.y == 1 ? lookRotation.y :_startRotation.eulerAngles.y;
-            //lookRotation.z = _rotationOnAxis.z == 1 ? lookRotation.z :_startRotation.eulerAngles.z;
             lookRotation.x = _rotationOnAxis.x == 1 ? FindLookRotationX(direction) :_startRotation.eulerAngles.x;
             lookRotation.y = _rotationOnAxis.y == 1 ? FindLookRotationY(direction) :_startRotation.eulerAngles.y;
             lookRotation.z = _rotationOnAxis.z == 1 ? FindLookRotationZ(direction) :_startRotation.eulerAngles.z;
@@ -174,22 +169,6 @@ namespace TheRoom.InteractableObjects
             return _invertZ
                 ? Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
                 : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        }
-
-        private Vector3 FindLookRotation(Vector3Int vector3Int, Vector3 direction)
-        {
-            if (vector3Int.x == 1)
-            {
-                return Quaternion.LookRotation(direction, Vector3.up).normalized.eulerAngles;
-            }
-            else if (vector3Int.y == 1)
-            {
-                return Quaternion.LookRotation(direction, Vector3.up).normalized.eulerAngles;
-            }
-            else
-            {
-                return Quaternion.LookRotation(Vector3.forward, direction).normalized.eulerAngles;
-            }
         }
 
         public override void StartInteraction(Vector3 startPos = default)

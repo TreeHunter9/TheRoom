@@ -24,7 +24,7 @@ namespace TheRoom.CameraMovement
         {
             EnableInteractableObjects();
             
-            CameraChanger.ChangeCamera(_camera);
+            CinemachineCameraHelper.ChangeCamera(_camera);
         }
 
         public void DisableInteractableObjects()

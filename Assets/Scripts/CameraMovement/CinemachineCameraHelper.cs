@@ -6,13 +6,12 @@ using Zenject;
 namespace TheRoom.CameraMovement
 {
     [RequireComponent(typeof(CinemachineBrain))]
-    public class CameraChanger : MonoBehaviour
+    public class CinemachineCameraHelper : MonoBehaviour
     {
         [Inject] private InventoryCursorChannel _inventoryCursorChannel;
         
         private static CinemachineBrain _cinemachineBrain;
         private static CinemachineFreeLook _cinemachineSave;
-        private static Vector3 _saveCameraPosition;
 
         private void Awake()
         {
@@ -22,17 +21,25 @@ namespace TheRoom.CameraMovement
 
         private static void ChangeAndSaveCamera(CinemachineFreeLook toCM)
         {
+            if (_cinemachineSave == null)
+                _cinemachineSave = (CinemachineFreeLook)_cinemachineBrain.ActiveVirtualCamera;
+            else if (_cinemachineBrain.ActiveVirtualCamera.Name != toCM.Name)
+                _cinemachineSave = (CinemachineFreeLook)_cinemachineBrain.ActiveVirtualCamera;
+            
             ChangeCamera(toCM);
-            _cinemachineSave = (CinemachineFreeLook)_cinemachineBrain.ActiveVirtualCamera;
-            _saveCameraPosition = _cinemachineSave.State.FinalPosition;
         }
 
         public static void ChangeCamera(CinemachineFreeLook toCM)
         {
+            _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
+            toCM.Priority = 1;
+        }
+
+        public static void RefreshCamera(CinemachineFreeLook toCM)
+        {
             if (_cinemachineSave == null)
             {
-                _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
-                toCM.Priority = 1;
+                ChangeCamera(toCM);
                 return;
             }
             

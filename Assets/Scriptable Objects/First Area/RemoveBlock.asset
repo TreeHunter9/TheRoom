@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RemoveBlock
   m_EditorClassIdentifier: 
   prefabForInteraction: {fileID: 5743592074021054019, guid: 718e4f8842b1f684fbbc831b33f57395, type: 3}
-  prefabForLook: {fileID: 5993893429475257026, guid: 39f14807a046cec4985ca813a43d7191, type: 3}
+  prefabForLook: {fileID: 5902182374038680272, guid: 39f14807a046cec4985ca813a43d7191, type: 3}
   sprite: {fileID: 21300000, guid: e9fe66bbd2de5d44d99d7ddc7d0e99bc, type: 3}

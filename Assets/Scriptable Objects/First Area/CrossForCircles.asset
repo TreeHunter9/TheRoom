@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CrossForCircles
   m_EditorClassIdentifier: 
   prefabForInteraction: {fileID: 5794962420120710875, guid: 200d6570708ba90468f1ce2da374ac16, type: 3}
-  prefabForLook: {fileID: 5794962420120710875, guid: 200d6570708ba90468f1ce2da374ac16, type: 3}
+  prefabForLook: {fileID: 5381377440409715237, guid: d8af042172d028d44a90f7a67bff19ed, type: 3}
   sprite: {fileID: 21300000, guid: 13389503298498c48b270cd96ecbcad5, type: 3}
