@@ -163,7 +163,7 @@ MonoBehaviour:
   _simpleRotation: 0
   _mouseXRotationAxis: {x: 0, y: 0, z: 0}
   _mouseYRotationAxis: {x: 0, y: 0, z: 0}
-  _wrap: 0
+  _wrap: 1
   _fromRotation: {x: 0, y: 0, z: 0}
   _toRotation: {x: 0, y: 0, z: 0}
   _stopWhenOnPosition: 0
@@ -187,3 +187,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateOnAngle: 1080
   _rotateWithKeyhole: 1
+  _destroyKeyholeAfterUnlook: 1

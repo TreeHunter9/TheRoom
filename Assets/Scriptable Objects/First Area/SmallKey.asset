@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123452e154e46b4b9680ed85bcab152, type: 3}
   m_Name: SmallKey
   m_EditorClassIdentifier: 
-  prefabForInteraction: {fileID: 2505200835563412871, guid: f7f9e47c4f4424b459f623b5f4a7e2e5, type: 3}
+  prefabForInteraction: {fileID: 4179496499162318342, guid: b21723c3d9660d0438b48426fd8a57c5, type: 3}
   prefabForLook: {fileID: 4978776486949773070, guid: e73ce483a9dab074a92617800bfeeeb2, type: 3}
   sprite: {fileID: 21300000, guid: 93e84e6b37e892547bc27b1453b15075, type: 3}

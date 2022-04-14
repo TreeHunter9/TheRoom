@@ -20,8 +20,8 @@ namespace TheRoom.InteractableObjects.Editor
             SerializedProperty wrap = serializedObject.FindProperty("_wrap");
             if (wrap.boolValue == false)
             {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_fromRotation"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_toRotation"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_minRotation"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_maxRotation"));
             }
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_stopWhenOnPosition"));

@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 8789937886524475921}
   - component: {fileID: 6780405248098500315}
   m_Layer: 7
-  m_Name: SmallKey_L
+  m_Name: SmallKey_L1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

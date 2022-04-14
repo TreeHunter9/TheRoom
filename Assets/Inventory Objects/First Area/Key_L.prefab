@@ -72,8 +72,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2623113181439879176}
-  m_LocalRotation: {x: 0.037020385, y: -0.8293321, z: 0.5519451, w: -0.078704014}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.037020385, y: -0.82933223, z: 0.55194503, w: -0.078703955}
+  m_LocalPosition: {x: -0.00000007358985, y: 0.000000083519225, z: 0.00000007663051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1346458509273545500}
@@ -770,8 +770,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7274892415684624072}
-  m_LocalRotation: {x: 0.03482741, y: -0.8137345, z: 0.5746925, w: -0.07969872}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.03482741, y: -0.81373453, z: 0.5746924, w: -0.07969874}
+  m_LocalPosition: {x: -0.00000007358985, y: 0.000000083519225, z: 0.00000007663051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8000129433260388717}
@@ -1038,8 +1038,8 @@ MonoBehaviour:
   _mouseXRotationAxis: {x: 1, y: 0, z: 0}
   _mouseYRotationAxis: {x: 0, y: 0, z: 0}
   _wrap: 0
-  _fromRotation: {x: 0, y: 0, z: 0}
-  _toRotation: {x: 90, y: 0, z: 0}
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 90, y: 0, z: 0}
   _stopWhenOnPosition: 0
   _rotationOnAxis: {x: 0, y: 0, z: 0}
   _speedRotation: 3

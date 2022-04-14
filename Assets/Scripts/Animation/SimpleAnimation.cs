@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace TheRoom.Animation
 {
+    [RequireComponent(typeof(UnityEngine.Animation))]
     public class SimpleAnimation : MonoBehaviour
     {
         [SerializeField] private List<AnimationClip> _animationClips;

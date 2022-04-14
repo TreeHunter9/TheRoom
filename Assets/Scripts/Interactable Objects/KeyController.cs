@@ -9,6 +9,7 @@ namespace TheRoom.InteractableObjects
         [Range(0, 3600)]
         [SerializeField] private float _rotateOnAngle;
         [SerializeField] private bool _rotateWithKeyhole;
+        [SerializeField] private bool _destroyKeyholeAfterUnlook;
 
         private float _currentAngle = 0f;
 
@@ -24,7 +25,6 @@ namespace TheRoom.InteractableObjects
             _keyhole = transform.parent.parent;
             if (_rotateWithKeyhole == true)
             {
-                
                 transform.SetParent(transform.parent.parent.parent);
                 _keyhole.SetParent(transform);
             }
@@ -63,8 +63,11 @@ namespace TheRoom.InteractableObjects
         {
             _rotatableObjectScript.StopInteraction();
             _keyhole.GetComponent<KeyholeAction>().RaiseAction();
+            if (_rotateWithKeyhole == true && _destroyKeyholeAfterUnlook == false)
+            {
+                _keyhole.parent = transform.parent;
+            }
             Destroy(gameObject);
         }
     }
-    //TODO: Подкорректировать модель маленького ключа, gizmo указывает криво(переделать в blender)
 }

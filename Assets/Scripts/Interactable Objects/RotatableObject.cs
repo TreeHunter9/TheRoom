@@ -13,9 +13,9 @@ namespace TheRoom.InteractableObjects
         [SerializeField] private Vector3 _mouseYRotationAxis;
 
         [Header("Rotation Range")] 
-        [SerializeField] private bool _wrap;
-        [SerializeField] private Vector3 _fromRotation;
-        [SerializeField] private Vector3 _toRotation;
+        [SerializeField] private bool _wrap = true;
+        [SerializeField] private Vector3 _minRotation;
+        [SerializeField] private Vector3 _maxRotation;
         [Space] 
         [SerializeField] private bool _stopWhenOnPosition;
         [Space]
@@ -90,8 +90,12 @@ namespace TheRoom.InteractableObjects
         private void RotateObject()
         {
             Vector3 lookRotation = FindRotation();
-            _lookAtGO.transform.rotation = Quaternion.RotateTowards( 
+            Quaternion newRotation = Quaternion.RotateTowards( 
                 _lookAtGO.transform.rotation, Quaternion.Euler(lookRotation), _speedRotation);
+            //print(newRotation.eulerAngles);
+            _lookAtGO.transform.rotation = _wrap
+                ? newRotation
+                : newRotation.Restrict(_minRotation, _maxRotation);
         }
 
         private void RotateObjectSimple()
@@ -103,7 +107,7 @@ namespace TheRoom.InteractableObjects
             Vector3 angle = (_mouseXRotationAxis * -rotX + _mouseYRotationAxis * rotY) * speedRotation;
             //transform.Rotate(angle);
             Quaternion newRotation = transform.localRotation * Quaternion.Euler(angle);
-            transform.localRotation = newRotation.Restrict(_fromRotation, _toRotation);
+            transform.localRotation = _wrap ? newRotation : newRotation.Restrict(_minRotation, _maxRotation);
         }
 
         private void RotateGOForLookAt()

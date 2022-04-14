@@ -5,6 +5,8 @@ namespace TheRoom.InteractableObjects
     public class MovableObject : InteractableObject
     {
         [SerializeField] private Vector3 _endPosition;
+        [Range(0f, 1f)] 
+        [SerializeField] private float _percentageForMagnet = 0.8f;
 
         private Vector3 _startPosition;
 
@@ -92,7 +94,7 @@ namespace TheRoom.InteractableObjects
         {
             isActive = false;
             
-            if (CompletePercent >= 0.8f)
+            if (CompletePercent >= _percentageForMagnet)
             {
                 CompletePercent = 1f;
                 transform.position = _endPosition;
