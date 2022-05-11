@@ -103,11 +103,11 @@ MonoBehaviour:
   _mouseXRotationAxis: {x: 0, y: 0, z: 0}
   _mouseYRotationAxis: {x: 0, y: 0, z: 0}
   _wrap: 1
-  _fromRotation: {x: 0, y: 0, z: 0}
-  _toRotation: {x: 0, y: 0, z: 0}
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
   _stopWhenOnPosition: 0
   _rotationOnAxis: {x: 0, y: 0, z: 1}
-  _speedRotation: 3
+  _speedRotation: 5
   _invertZ: 1
   _invertY: 0
   _invertX: 0
