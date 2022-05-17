@@ -21,13 +21,15 @@ namespace TheRoom.InteractableObjects
         [Space]
         [Tooltip("Set axis to 1 if this object will rotate on this axis")]
         [SerializeField] private Vector3Int _rotationOnAxis;
-        [SerializeField] private float _speedRotation = 3f;
+        [SerializeField] private float _speedRotation = 300f;
 
         [Tooltip("Если будет вращаться в противоположную сторону")]
         [SerializeField] private bool _invertZ;
         [SerializeField] private bool _invertY;
         [SerializeField] private bool _invertX;
 
+        [SerializeField] private bool _changeRotationX;
+        [SerializeField] private bool _changeRotationY;
         [SerializeField] private bool _changeRotationZ;
 
         private PossiblePositions _possiblePositions;
@@ -58,7 +60,7 @@ namespace TheRoom.InteractableObjects
             _rotationOnAxis = _rotationOnAxis.Invert();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (isActive == false) 
                 return;
@@ -68,7 +70,7 @@ namespace TheRoom.InteractableObjects
             else
                 RotateObject();
         }
-        
+
         private void CreateGOForLookAt()
         {
             _lookAtGO = new GameObject("ForRotationGO");
@@ -90,8 +92,8 @@ namespace TheRoom.InteractableObjects
         private void RotateObject()
         {
             Vector3 lookRotation = FindRotation();
-            Quaternion newRotation = Quaternion.RotateTowards( 
-                _lookAtGO.transform.rotation, Quaternion.Euler(lookRotation), _speedRotation);
+            Quaternion newRotation = Quaternion.RotateTowards(_lookAtGO.transform.rotation,
+                Quaternion.Euler(lookRotation), _speedRotation * Time.deltaTime);
             //print(newRotation.eulerAngles);
             _lookAtGO.transform.rotation = _wrap
                 ? newRotation
@@ -138,11 +140,11 @@ namespace TheRoom.InteractableObjects
         //TODO: отрефакторить!!!
         private float FindLookRotationX(Vector3 direction)
         {
-            if (_changeRotationZ == true)
+            if (_changeRotationX == true)
             {
                 return _invertX
-                    ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
-                    : Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+                    ? Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg
+                    : Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
             }
             return _invertX
                 ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
@@ -151,7 +153,7 @@ namespace TheRoom.InteractableObjects
 
         private float FindLookRotationY(Vector3 direction)
         {
-            if (_changeRotationZ == true)
+            if (_changeRotationY == true)
             {
                 return _invertY
                     ? Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg
@@ -205,5 +207,7 @@ namespace TheRoom.InteractableObjects
             }
             isActive = false;
         }
+
+        public Vector3 GetAxis() => _rotationOnAxis;
     }
 }

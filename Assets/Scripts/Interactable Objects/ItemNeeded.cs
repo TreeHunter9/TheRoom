@@ -26,10 +26,17 @@ namespace TheRoom.InteractableObjects
         [Tooltip("KEY - id объекта в скрипте PossiblePositins, VALUE - нужный id позиции")]
         [SerializeField] private Pair<int, int>[] _objectPositionsPair;
         
-        [Header("Position and Rotation for Item")] 
-        [SerializeField] private Transform _keyTransform;
+        [Header("Placed Item")] 
+        [SerializeField] private GameObject[] _hiddenItems;
         [Space]
         [SerializeField] private UnityEvent _actionsWhenItemIsSetup;
+
+        private Collider _collider;
+
+        private void Awake()
+        {
+            _collider = GetComponent<Collider>();
+        }
 
         public InventoryItemType NeededItemType => _key;
 
@@ -41,8 +48,11 @@ namespace TheRoom.InteractableObjects
 
         public void SetupItem()
         {
-            GameObject keyGO = Instantiate(_key.prefabForInteraction, _keyTransform.position, 
-                _keyTransform.rotation, _keyTransform);
+            foreach (GameObject item in _hiddenItems)
+            {
+                item.SetActive(true);
+            }
+            _collider.enabled = false;
             _actionsWhenItemIsSetup?.Invoke();
         }
     }

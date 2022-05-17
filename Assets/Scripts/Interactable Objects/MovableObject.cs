@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TheRoom.InteractableObjects
@@ -28,7 +29,7 @@ namespace TheRoom.InteractableObjects
             _endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (isActive == true)
             {

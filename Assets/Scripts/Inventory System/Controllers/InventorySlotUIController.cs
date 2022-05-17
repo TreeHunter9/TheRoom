@@ -28,6 +28,7 @@ namespace TheRoom.InventorySystem.Controllers
         private void Awake()
         {
             _image = GetComponent<Image>();
+            _image.preserveAspect = true;
         }
 
         private void UpdateSlot(InventoryItem item)

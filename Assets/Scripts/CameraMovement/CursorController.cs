@@ -67,6 +67,7 @@ namespace TheRoom.CameraMovement
             ItemNeeded itemNeeded = hit.transform.GetComponent<ItemNeeded>();
             if (itemNeeded.IsSimpleItem())
             {
+                _inventoryItem.UseItem();
                 itemNeeded.SetupItem();
             }
             else
@@ -75,6 +76,7 @@ namespace TheRoom.CameraMovement
                     _inventoryItem.ItemGO.GetComponent<StateOfInventoryItem>();
                 if (stateOfInventoryItem.Compare(itemNeeded.GetPositionsPair()) == true)
                 {
+                    _inventoryItem.UseItem();
                     itemNeeded.SetupItem();
                 }
             }

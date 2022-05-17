@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6123452e154e46b4b9680ed85bcab152, type: 3}
+  m_Name: Crystal
+  m_EditorClassIdentifier: 
+  prefabForLook: {fileID: 3143547447958926467, guid: 2c988f5b52ba82f4c9f347c126bb34e1, type: 3}
+  sprite: {fileID: 21300000, guid: 4f25147ae6a083a43b7ae1f9c982c2f7, type: 3}
+  numberOfUses: 1

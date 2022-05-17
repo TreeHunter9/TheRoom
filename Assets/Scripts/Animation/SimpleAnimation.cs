@@ -1,25 +1,20 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheRoom.Animation
 {
-    [RequireComponent(typeof(UnityEngine.Animation))]
     public class SimpleAnimation : MonoBehaviour
     {
-        [SerializeField] private List<AnimationClip> _animationClips;
-        
-        private UnityEngine.Animation _animation;
-
-        private void Awake()
-        {
-            _animation = GetComponent<UnityEngine.Animation>();
-        }
+        [SerializeField] private Animator _animator;
+        [SerializeField] private int _animationCount = 1;
+        [HideInInspector] public List<string> animationList;
 
         public void StartAnimation()
         {
-            _animation.clip = _animationClips[0];
-            _animationClips.RemoveAt(0);
-            _animation.Play();
+            _animator.Play(animationList[0]);
+            animationList.RemoveAt(0);
         }
     }
 }

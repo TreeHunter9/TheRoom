@@ -11,7 +11,7 @@ namespace TheRoom.InteractableObjects
         private void Awake()
         {
             _mainCamera = Camera.main;
-            _startPosition = transform.position;
+            _startPosition = transform.localPosition;
             _endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
@@ -23,7 +23,7 @@ namespace TheRoom.InteractableObjects
 
         public override void StopInteraction()
         {
-            transform.position = _startPosition;
+            transform.localPosition = _startPosition;
             _actionOnComplete?.Invoke();
             Destroy(this);
         }

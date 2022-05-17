@@ -8,8 +8,8 @@ namespace TheRoom.CameraMovement
 {
     public class MoveCameraOnMouseButtonPress : MonoBehaviour
     {
-        [Range(0.1f, 10f)]
-        [SerializeField] private float _sensitivity = 2f;
+        [Range(1f, 100f)]
+        [SerializeField] private float _sensitivity = 10f;
 
         [Inject] private InventoryCursorChannel _inventoryCursorChannel;
 
@@ -49,10 +49,10 @@ namespace TheRoom.CameraMovement
             return axisName switch
             {
                 "Mouse X" when Input.GetMouseButton(0) => Input.GetAxis("Mouse X") * -1f 
-                    * _sensitivity,
+                    * _sensitivity * Time.deltaTime,
                 "Mouse X" => 0,
                 "Mouse Y" when Input.GetMouseButton(0) => Input.GetAxis("Mouse Y") * -1f 
-                    * _sensitivity,
+                    * _sensitivity * Time.deltaTime * 2,
                 "Mouse Y" => 0,
                 _ => Input.GetAxis(axisName)
             };
