@@ -9,5 +9,6 @@ namespace TheRoom.Utilities
         public const string NeededItemTag = "NeedItem";
         public const string GOForCameraTag = "GOForCamera";
         public static readonly int PlaneLayer = LayerMask.NameToLayer("PlaneForRaycast");
+        public static readonly int LaserLayer = LayerMask.NameToLayer("Laser");
     }
 }

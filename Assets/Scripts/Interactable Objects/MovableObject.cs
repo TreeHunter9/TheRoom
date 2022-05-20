@@ -9,6 +9,8 @@ namespace TheRoom.InteractableObjects
         [Range(0f, 1f)] 
         [SerializeField] private float _percentageForMagnet = 0.8f;
 
+        [SerializeField] private bool _onlyMoving;
+
         private Vector3 _startPosition;
 
         private Vector3 _mouseStartPosition;
@@ -27,6 +29,11 @@ namespace TheRoom.InteractableObjects
             _mainCamera = Camera.main;
             _startPosition = transform.position;
             _endPosition = transform.parent.TransformPoint(_endPosition);
+        }
+
+        private void OnDestroy()
+        {
+            StopInteraction();
         }
 
         private void LateUpdate()
@@ -94,6 +101,9 @@ namespace TheRoom.InteractableObjects
         public override void StopInteraction()
         {
             isActive = false;
+            
+            if (_onlyMoving == true)
+                return;
             
             if (CompletePercent >= _percentageForMagnet)
             {

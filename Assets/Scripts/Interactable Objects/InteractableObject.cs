@@ -25,6 +25,11 @@ namespace TheRoom.InteractableObjects
 
         public event Action<bool> onChangeActive;
 
+        public void Remove()
+        {
+            Destroy(this);
+        }
+
         public abstract void StartInteraction(Vector3 startPos = default);
         
         public abstract void StopInteraction();

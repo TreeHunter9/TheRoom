@@ -23,6 +23,15 @@ namespace TheRoom.InteractableObjects
         private void Awake()
         {
             _currentPositionPair = new Pair<int, int>(_objectID, -1);
+            foreach (var pos in _positions)
+            {
+                Quaternion currentRotation = transform.localRotation;
+                if (Quaternion.Angle(currentRotation, pos.value) <= _allowedAngleForMagnit)
+                {
+                    transform.localRotation = pos.value;
+                    _currentPositionPair.value = pos.key;
+                }
+            }
         }
 
         public bool TryCheckPositions(bool isSimpleRotation)
@@ -31,13 +40,16 @@ namespace TheRoom.InteractableObjects
             {
                 Quaternion currentRotation = isSimpleRotation
                     ? transform.localRotation
-                    : transform.parent.rotation * transform.localRotation;
+                    : transform.parent.localRotation * transform.localRotation;
                 if (Quaternion.Angle(currentRotation, pos.value) <= _allowedAngleForMagnit)
                 {
                     if (isSimpleRotation == true)
                         transform.localRotation = pos.value;
                     else
-                        transform.rotation = pos.value;
+                    {
+                        transform.localRotation = pos.value;
+                        transform.parent.localRotation = Quaternion.identity;
+                    }
                     _currentPositionPair.value = pos.key;
                     onPosition?.Invoke();
                     return true;

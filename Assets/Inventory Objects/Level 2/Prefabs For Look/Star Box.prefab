@@ -208,6 +208,10 @@ GameObject:
   - component: {fileID: 1711719836180402123}
   - component: {fileID: 1711719836180402127}
   - component: {fileID: 1711719836180402120}
+  - component: {fileID: 2114850248643567585}
+  - component: {fileID: 6781803507042447606}
+  - component: {fileID: -6220165510208980231}
+  - component: {fileID: 3348529968824621107}
   m_Layer: 0
   m_Name: Star Box
   m_TagString: Untagged
@@ -290,6 +294,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2114850248643567585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836180402116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc885b263fbae3b4d8e5b65c86042542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &6781803507042447606
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836180402116}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 8a4e3e31c05a0564b885b4f42c55ad6c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &-6220165510208980231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836180402116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052fe11971cddb5469603170f15672b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &3348529968824621107
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836180402116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6657180443270484345, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &1711719836231845446
 GameObject:
   m_ObjectHideFlags: 3
@@ -376,9 +434,12 @@ GameObject:
   - component: {fileID: 1711719836299974861}
   - component: {fileID: 1711719836299974835}
   - component: {fileID: 1711719836299974860}
+  - component: {fileID: 1656364537893373314}
+  - component: {fileID: 444132177354382468}
+  - component: {fileID: 6847126371770671217}
   m_Layer: 0
   m_Name: Cube.079
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,14 +451,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711719836299974862}
-  m_LocalRotation: {x: 0, y: 0, z: -0.3826834, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 2.9802322e-10, y: 0, z: 5.9604643e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1711719836180402123}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!33 &1711719836299974835
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -448,6 +509,90 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1656364537893373314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836299974862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 0
+  _allowedAngleForMagnit: 5
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 0, w: 0}
+  - key: 0
+    value: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  - key: 0
+    value: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+  - key: 0
+    value: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+  - key: 0
+    value: {x: 0, y: 0, z: -0.00000008742278, w: -1}
+--- !u!114 &444132177354382468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836299974862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6220165510208980231}
+        m_TargetAssemblyTypeName: TheRoom.SimpleAnimationLegacy, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 1
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 0
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &6847126371770671217
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711719836299974862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2363565981455421637, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &1711719836320810731
 GameObject:
   m_ObjectHideFlags: 3

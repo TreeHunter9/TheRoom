@@ -198,12 +198,15 @@ GameObject:
   - component: {fileID: 3475119590396375880}
   - component: {fileID: 3475119590396375882}
   - component: {fileID: 3475119590396375883}
+  - component: {fileID: 5753152092610602372}
+  - component: {fileID: 6600837670258073867}
+  - component: {fileID: 2961486877048245893}
   m_Layer: 0
   m_Name: Cylinder.023
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119590396375880
 Transform:
@@ -270,6 +273,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5753152092610602372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590396375881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 0
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+--- !u!114 &6600837670258073867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590396375881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &2961486877048245893
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590396375881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1982877014985498672, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119590653681754
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,12 +348,15 @@ GameObject:
   - component: {fileID: 3475119590653681749}
   - component: {fileID: 3475119590653681751}
   - component: {fileID: 3475119590653681748}
+  - component: {fileID: 6576996027189553402}
+  - component: {fileID: 6758703621461096633}
+  - component: {fileID: 4707474198901807986}
   m_Layer: 0
   m_Name: Cylinder.021
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119590653681749
 Transform:
@@ -353,6 +423,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6576996027189553402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590653681754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 2
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+--- !u!114 &6758703621461096633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590653681754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &4707474198901807986
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119590653681754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6357616769542740209, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119591406643936
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,12 +498,15 @@ GameObject:
   - component: {fileID: 3475119591406643939}
   - component: {fileID: 3475119591406643965}
   - component: {fileID: 3475119591406643938}
+  - component: {fileID: 2831532565902818357}
+  - component: {fileID: 2413963021371929151}
+  - component: {fileID: 2634757227975217587}
   m_Layer: 0
   m_Name: Cylinder.018
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119591406643939
 Transform:
@@ -436,6 +573,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2831532565902818357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591406643936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 5
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: -0.00000008742278, w: -1}
+--- !u!114 &2413963021371929151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591406643936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &2634757227975217587
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591406643936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1407623660032272785, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119591481590176
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,12 +648,15 @@ GameObject:
   - component: {fileID: 3475119591481590179}
   - component: {fileID: 3475119591481590205}
   - component: {fileID: 3475119591481590178}
+  - component: {fileID: 1801993618388501060}
+  - component: {fileID: 518984028275948822}
+  - component: {fileID: 930028650413723109}
   m_Layer: 0
   m_Name: Cylinder.022
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119591481590179
 Transform:
@@ -519,6 +723,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1801993618388501060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591481590176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 1
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+--- !u!114 &518984028275948822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591481590176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &930028650413723109
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591481590176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 506893626503705964, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119591737600975
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,12 +798,14 @@ GameObject:
   - component: {fileID: 3475119591737600974}
   - component: {fileID: 3475119591737600970}
   - component: {fileID: 3475119591737600971}
+  - component: {fileID: 8439336677252045310}
+  - component: {fileID: 7853838350046865989}
   m_Layer: 0
   m_Name: Big Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119591737600974
 Transform:
@@ -611,6 +881,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8439336677252045310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591737600975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc885b263fbae3b4d8e5b65c86042542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &7853838350046865989
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591737600975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7687012483502210217, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119591891034664
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,12 +918,15 @@ GameObject:
   - component: {fileID: 3475119591891034667}
   - component: {fileID: 3475119591891034661}
   - component: {fileID: 3475119591891034666}
+  - component: {fileID: 9116323776263293981}
+  - component: {fileID: 3804086502342268072}
+  - component: {fileID: 5938112628648031594}
   m_Layer: 0
   m_Name: Cylinder.019
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119591891034667
 Transform:
@@ -694,6 +993,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9116323776263293981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591891034664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 4
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+--- !u!114 &3804086502342268072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591891034664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &5938112628648031594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119591891034664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5746147162638082140, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &3475119592345781214
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,12 +1068,15 @@ GameObject:
   - component: {fileID: 3475119592345781209}
   - component: {fileID: 3475119592345781211}
   - component: {fileID: 3475119592345781208}
+  - component: {fileID: 4114562775312482769}
+  - component: {fileID: 3893169672375258636}
+  - component: {fileID: 5381244017761763971}
   m_Layer: 0
   m_Name: Cylinder.020
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3475119592345781209
 Transform:
@@ -777,6 +1143,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4114562775312482769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119592345781214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09531141c466d64d9fcb3d231022aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: 3
+  _allowedAngleForMagnit: 10
+  _positions:
+  - key: 0
+    value: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+--- !u!114 &3893169672375258636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119592345781214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9c534bb3ae3d4ba92f72fa52be764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  FORSAVE: {x: 0, y: 0, z: 0}
+  _simpleRotation: 0
+  _mouseXRotationAxis: {x: 0, y: 0, z: 0}
+  _mouseYRotationAxis: {x: 0, y: 0, z: 0}
+  _wrap: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _stopWhenOnPosition: 0
+  _rotationOnAxis: {x: 0, y: 0, z: 1}
+  _speedRotation: 300
+  _autoMagnet: 1
+  _autoMagnetAngle: 45
+  _invertZ: 1
+  _invertY: 0
+  _invertX: 0
+  _changeRotationX: 0
+  _changeRotationY: 0
+  _changeRotationZ: 0
+--- !u!64 &5381244017761763971
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475119592345781214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5894421597310714776, guid: 33dd87d381aaa7e47820b6251343584f, type: 3}
 --- !u!1 &4719937374861171795
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,8 +1343,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4748060498043922253}
-  m_LocalRotation: {x: -0.18196249, y: -0.15281828, z: 0.96140957, w: 0.1386649}
-  m_LocalPosition: {x: 0.000010181939, y: 0.000007323513, z: -0.000014672412}
+  m_LocalRotation: {x: -0.18196243, y: -0.15281826, z: 0.96140957, w: 0.13866487}
+  m_LocalPosition: {x: 0.0000014545625, y: 0.000000054768755, z: -0.000000456657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

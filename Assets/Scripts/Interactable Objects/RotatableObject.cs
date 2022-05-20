@@ -1,5 +1,6 @@
 using System;
 using TheRoom.Utilities;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace TheRoom.InteractableObjects
     public class RotatableObject : InteractableObject
     {
         [SerializeField] private bool _simpleRotation;
-        [SerializeField] private Vector3 _mouseXRotationAxis;
-        [SerializeField] private Vector3 _mouseYRotationAxis;
+        [SerializeField] private Vector3Int _mouseXRotationAxis;
+        [SerializeField] private Vector3Int _mouseYRotationAxis;
 
         [Header("Rotation Range")] 
         [SerializeField] private bool _wrap = true;
@@ -22,6 +23,9 @@ namespace TheRoom.InteractableObjects
         [Tooltip("Set axis to 1 if this object will rotate on this axis")]
         [SerializeField] private Vector3Int _rotationOnAxis;
         [SerializeField] private float _speedRotation = 300f;
+        [SerializeField] private bool _autoMagnet;
+        [SerializeField] private float _autoMagnetAngle = 45f;
+        [SerializeField] private float _magnetOffset = 0f;
 
         [Tooltip("Если будет вращаться в противоположную сторону")]
         [SerializeField] private bool _invertZ;
@@ -94,7 +98,6 @@ namespace TheRoom.InteractableObjects
             Vector3 lookRotation = FindRotation();
             Quaternion newRotation = Quaternion.RotateTowards(_lookAtGO.transform.rotation,
                 Quaternion.Euler(lookRotation), _speedRotation * Time.deltaTime);
-            //print(newRotation.eulerAngles);
             _lookAtGO.transform.rotation = _wrap
                 ? newRotation
                 : newRotation.Restrict(_minRotation, _maxRotation);
@@ -104,10 +107,11 @@ namespace TheRoom.InteractableObjects
         {
             float rotX = Input.GetAxis("Mouse X");
             float rotY = Input.GetAxis("Mouse Y");
-            float speedRotation = 4f;
+            float speedRotation = 400f;
 
-            Vector3 angle = (_mouseXRotationAxis * -rotX + _mouseYRotationAxis * rotY) * speedRotation;
-            //transform.Rotate(angle);
+
+            Vector3 angle = (_mouseXRotationAxis.ToVector3() * -rotX + _mouseYRotationAxis.ToVector3() * rotY) *
+                            (speedRotation * Time.deltaTime);
             Quaternion newRotation = transform.localRotation * Quaternion.Euler(angle);
             transform.localRotation = _wrap ? newRotation : newRotation.Restrict(_minRotation, _maxRotation);
         }
@@ -137,7 +141,6 @@ namespace TheRoom.InteractableObjects
             return lookRotation;
         }
         
-        //TODO: отрефакторить!!!
         private float FindLookRotationX(Vector3 direction)
         {
             if (_changeRotationX == true)
@@ -177,6 +180,43 @@ namespace TheRoom.InteractableObjects
                 : Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         }
 
+        private void Magnet()
+        {
+            Vector3Int axis = _simpleRotation == false 
+                ? _rotationOnAxis 
+                : _mouseXRotationAxis + _mouseYRotationAxis;
+            Quaternion rotation = _simpleRotation == false
+                ? transform.localRotation * transform.parent.localRotation
+                : transform.localRotation;
+            if (axis.x == 1)
+            {
+                float x = transform.localRotation.eulerAngles.x;
+                float difference = FindDifference(x);
+                transform.localRotation *= Quaternion.Euler(difference, 0, 0);
+            }
+            else if (axis.y == 1)
+            {
+                float y = transform.localRotation.eulerAngles.y;
+                float difference = FindDifference(y);
+                transform.localRotation *= Quaternion.Euler(0, difference, 0);
+            }
+            else
+            {
+                float z = rotation.eulerAngles.z;
+                float difference = FindDifference(z);
+                transform.localRotation *= Quaternion.Euler(0, 0, difference);
+            }
+        }
+
+        private float FindDifference(float number)
+        {
+            number -= _magnetOffset;
+            float difference = number - _autoMagnetAngle * Convert.ToInt32(number / _autoMagnetAngle);
+            if (difference < _autoMagnetAngle / 2)
+                difference *= -1;
+            return difference;
+        }
+
         public override void StartInteraction(Vector3 startPos = default)
         {
             if (_simpleRotation == false)
@@ -193,6 +233,9 @@ namespace TheRoom.InteractableObjects
 
         public override void StopInteraction()
         {
+            if (_autoMagnet == true)
+                Magnet();
+            
             bool isOnPosition = _possiblePositions.TryCheckPositions(_simpleRotation);
             if (_isUsingForKey == false && _stopWhenOnPosition == true 
                                         && isOnPosition == true)

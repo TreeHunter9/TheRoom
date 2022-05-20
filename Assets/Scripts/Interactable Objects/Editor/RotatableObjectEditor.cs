@@ -31,6 +31,14 @@ namespace TheRoom.InteractableObjects.Editor
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_speedRotation"));
             }
+            
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_autoMagnet"));
+            SerializedProperty autoMagnet = serializedObject.FindProperty("_autoMagnet");
+            if (autoMagnet.boolValue == true)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_autoMagnetAngle"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_magnetOffset"));
+            }
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertX"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_invertY"));
