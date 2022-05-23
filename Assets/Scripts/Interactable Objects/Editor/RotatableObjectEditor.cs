@@ -3,6 +3,7 @@ using UnityEditor;
 
 namespace TheRoom.InteractableObjects.Editor
 {
+#if (UNITY_EDITOR)
     [CustomEditor(typeof(RotatableObject))]
     public class RotatableObjectEditor : UnityEditor.Editor
     {
@@ -15,7 +16,13 @@ namespace TheRoom.InteractableObjects.Editor
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_mouseXRotationAxis"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_mouseYRotationAxis"));
             }
-            
+
+            if (simpleRotation.boolValue == false)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
+            }
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_speedRotation"));
+
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_wrap"));
             SerializedProperty wrap = serializedObject.FindProperty("_wrap");
             if (wrap.boolValue == false)
@@ -23,15 +30,9 @@ namespace TheRoom.InteractableObjects.Editor
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_minRotation"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_maxRotation"));
             }
-            
+
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_stopWhenOnPosition"));
 
-            if (simpleRotation.boolValue == false)
-            {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_rotationOnAxis"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_speedRotation"));
-            }
-            
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_autoMagnet"));
             SerializedProperty autoMagnet = serializedObject.FindProperty("_autoMagnet");
             if (autoMagnet.boolValue == true)
@@ -51,4 +52,5 @@ namespace TheRoom.InteractableObjects.Editor
             serializedObject.ApplyModifiedProperties();
         }
     }
+#endif
 }

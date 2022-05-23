@@ -8,12 +8,14 @@ namespace TheRoom.InteractableObjects.MiniGames.SafeCode
     public class SafeToggle : MonoBehaviour
     {
         [SerializeField] private int _id;
-        [SerializeField] private Vector3 _offset;
 
         private SafeDataHolder _safeDataHolder;
         private Transform _arrowTransform;
-        private Vector3 _endPosition;
+        
         private Vector3 _startPosition;
+        private Vector3 _endPosition;
+        private Vector3 _offset;
+        
         private bool _isAtStartPosition = true;
         private bool _isAnimated = false;
 
@@ -23,28 +25,25 @@ namespace TheRoom.InteractableObjects.MiniGames.SafeCode
             _safeDataHolder = safeDataHolder;
             _safeDataHolder.onComplete += CompleteAsync;
             _safeDataHolder.onFailed += Refresh;
+            _safeDataHolder.onActiveChange += ChangeActivityState;
         }
 
         private void Awake()
         {
             _startPosition = transform.localPosition;
+            _offset = transform.parent.InverseTransformDirection(transform.forward) * 0.00009f;
             _endPosition = _startPosition + _offset;
             _arrowTransform = _safeDataHolder.arrowTransform;
+            this.enabled = false;
         }
 
         private void Update()
         {
-            // var rotation1 = transform.rotation * Vector3.back;
-            // var rotation2 = _arrowTransform.rotation * Vector3.back;
-            //
-            // var angle1 = Mathf.Atan2(rotation1.x, rotation1.y) * Mathf.Rad2Deg;
-            // var angle2 = Mathf.Atan2(rotation2.x, rotation2.y) * Mathf.Rad2Deg;
-            //
-            // var angleDiff = Mathf.DeltaAngle(angle1, angle2);
-            // print(angleDiff);
-            
-            // if (angleDiff >= 0f && angleDiff < -20f)
-            //     Activate();
+            Vector3 rotation1 = transform.rotation * Vector3.forward;
+            Vector3 rotation2 = _arrowTransform.rotation * Vector3.forward;
+            float angle = Vector3.Angle(rotation1, rotation2);
+            if (angle <= 4.5f)
+                Activate();
         }
 
         private void Activate()
@@ -62,16 +61,19 @@ namespace TheRoom.InteractableObjects.MiniGames.SafeCode
         {
             _safeDataHolder.onComplete -= CompleteAsync;
             _safeDataHolder.onFailed -= Refresh;
-            if (_isAnimated == true)
+            if (_isAnimated == true || _isAtStartPosition == true)
                 await UniTask.WaitUntil(() => _isAnimated == false);
             Destroy(this);
         }
 
         private void Refresh()
         {
+            if (_isAtStartPosition == true)
+                return;
             _isAtStartPosition = true;
             if (_isAnimated == false)
                 PlayAnimationAsync();
+            this.enabled = true;
         }
 
         private async UniTask PlayAnimationAsync()
@@ -88,6 +90,12 @@ namespace TheRoom.InteractableObjects.MiniGames.SafeCode
             }
 
             _isAnimated = false;
+        }
+
+        private void ChangeActivityState(bool active)
+        {
+            if (_isAtStartPosition == true)
+                this.enabled = active;
         }
     }
 }

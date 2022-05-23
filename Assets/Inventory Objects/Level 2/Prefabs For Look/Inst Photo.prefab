@@ -748,7 +748,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.52
+    Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 2
     m_AccelTime: 0.2
@@ -802,12 +802,12 @@ MonoBehaviour:
   m_BindingMode: 0
   m_SplineCurvature: 0
   m_Orbits:
-  - m_Height: 0.24
-    m_Radius: 0.3
+  - m_Height: 0.3
+    m_Radius: 0.36
   - m_Height: 0
     m_Radius: 0.46
-  - m_Height: -0.24
-    m_Radius: 0.3
+  - m_Height: -0.3
+    m_Radius: 0.36
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 6748134339950593539}

@@ -38,12 +38,10 @@ namespace TheRoom.CameraMovement
 
         private void ChangeView()
         {
-            if (_cinemachineBrain.ActiveVirtualCamera.Follow.TryGetComponent(out HasCamera hasCamera))
-                hasCamera.DisableInteractableObjects();
             CinemachineCameraHelper.RefreshCamera(_cinemachineDefaultCamera);
         }
 
-        private void Disable() => this.enabled = false;
-        private void Enable() => this.enabled = true;
+        public void Disable() => this.enabled = false;
+        public void Enable() => this.enabled = true;
     }
 }

@@ -9,20 +9,19 @@ namespace TheRoom.InteractableObjects
         [SerializeField] private bool _destroyOnRelease = true;
 
         private Vector3 _startPosition;
-        
-        public bool isEnabled = true;
+
+        private Collider _collider;
         public event Action onButtonRelease;
         
         private void Awake()
         {
             _startPosition = transform.localPosition;
             _endPosition = transform.parent.TransformPoint(_endPosition);
+            _collider = GetComponent<Collider>();
         }
 
         public override void StartInteraction(Vector3 startPos = default)
         {
-            if (isEnabled == false)
-                return;
             isActive = true;
             transform.position = _endPosition;
         }
@@ -35,7 +34,15 @@ namespace TheRoom.InteractableObjects
             if (_destroyOnRelease == true)
                 Destroy(this);
             else
-                isEnabled = false;
+                _collider.enabled = false;
         }
+
+        public void SetActive(bool active)
+        {
+            if (_collider != null)
+                _collider.enabled = active;
+        }
+
+        public void RemoveCollide() => Destroy(_collider);
     }
 }

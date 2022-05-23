@@ -28,9 +28,11 @@ namespace TheRoom.InteractableObjects.MiniGames.TimeButtons
             {
                 _woodStartRotation = _woodBlock.localRotation;
                 _woodEndRotation = _woodStartRotation * Quaternion.Euler(Vector3.right * WoodRotateAngle);
-                if (_nextWoodBlock != null)
-                    _nextWoodEndRotation = _nextWoodBlock.localRotation * Quaternion.Euler(Vector3.right * WoodRotateAngle);
             }
+
+            if (_nextWoodBlock != null)
+                _nextWoodEndRotation = _nextWoodBlock.localRotation * Quaternion.Euler(Vector3.right * WoodRotateAngle);
+            
 
             if (_nextPanel != null)
                 _nextPanel.onOpenNextWoodBlock += ClosePanel;
@@ -40,7 +42,7 @@ namespace TheRoom.InteractableObjects.MiniGames.TimeButtons
         private void OnDisable()
         {
             if (_nextPanel != null)
-                _nextPanel.onOpenNextWoodBlock += ClosePanel;
+                _nextPanel.onOpenNextWoodBlock -= ClosePanel;
             _button.onButtonRelease -= ButtonPress;
         }
 
@@ -67,7 +69,7 @@ namespace TheRoom.InteractableObjects.MiniGames.TimeButtons
             if (_woodBlock == null)
                 return;
             RotateWoodBlockAsync(_woodBlock, _woodStartRotation);
-            _button.isEnabled = true;
+            _button.SetActive(true);
         }
         
         public Transform GetArrow() => _arrow;

@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace TheRoom.Animation.Editor
 {
+#if (UNITY_EDITOR)
     [CustomEditor(typeof(SimpleAnimation))]
     public class SimpleAnimationEditor : UnityEditor.Editor
     {
@@ -46,4 +47,5 @@ namespace TheRoom.Animation.Editor
             simpleAnimationScript.animationList = animationList;
         }
     }
+#endif
 }

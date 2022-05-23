@@ -28,12 +28,12 @@ namespace TheRoom.InteractableObjects
         {
             _mainCamera = Camera.main;
             _startPosition = transform.position;
-            _endPosition = transform.parent.TransformPoint(_endPosition);
+            //_endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            StopInteraction();
+            _endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
         private void LateUpdate()

@@ -20,12 +20,7 @@ namespace TheRoom.CameraMovement
             _hasCollider = TryGetComponent(out _collider);
         }
 
-        public void ChangeCameraView()
-        {
-            EnableInteractableObjects();
-            
-            CinemachineCameraHelper.ChangeCamera(_camera);
-        }
+        public void ChangeCameraView() => CinemachineCameraHelper.ChangeCamera(_camera);
 
         public void DisableInteractableObjects()
         {
@@ -34,7 +29,7 @@ namespace TheRoom.CameraMovement
             _interactList.DisableObjects();
         }
 
-        private void EnableInteractableObjects()
+        public void EnableInteractableObjects()
         {
             if (_hasCollider == true)
                 _collider.enabled = false;

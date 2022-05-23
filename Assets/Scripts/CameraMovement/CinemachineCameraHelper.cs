@@ -31,8 +31,12 @@ namespace TheRoom.CameraMovement
 
         public static void ChangeCamera(CinemachineFreeLook toCM)
         {
+            if (_cinemachineBrain.ActiveVirtualCamera.Follow.TryGetComponent(out HasCamera hasCamera))
+                hasCamera.DisableInteractableObjects();
             _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
             toCM.Priority = 1;
+            if (toCM.Follow.TryGetComponent(out hasCamera))
+                hasCamera.EnableInteractableObjects();
         }
 
         public static void RefreshCamera(CinemachineFreeLook toCM)
@@ -42,11 +46,15 @@ namespace TheRoom.CameraMovement
                 ChangeCamera(toCM);
                 return;
             }
-            
-            _cinemachineBrain.ActiveVirtualCamera.Priority = 0;
-            _cinemachineSave.Priority = 1;
+            ChangeCamera(_cinemachineSave);
             _cinemachineSave.m_Transitions.m_InheritPosition = false;
             _cinemachineSave = null;
+        }
+
+        public static void InheritPositionOnLive(ICinemachineCamera camera1, ICinemachineCamera camera2)
+        {
+            CinemachineFreeLook CMFreeLook = (CinemachineFreeLook) camera1;
+            CMFreeLook.m_Transitions.m_InheritPosition = true;
         }
     }
 }

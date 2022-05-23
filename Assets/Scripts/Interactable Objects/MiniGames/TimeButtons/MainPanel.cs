@@ -14,6 +14,10 @@ namespace TheRoom
         [SerializeField] private ButtonObject _button1;
         [SerializeField] private ButtonObject _button2;
         [SerializeField] private List<Transform> _woodBlocks;
+        [SerializeField] private Color _disableButtonColor;
+        
+        private Material _button1Material;
+        private Material _button2Material;
 
         private List<Transform> _arrows;
         
@@ -37,6 +41,9 @@ namespace TheRoom
             _arrowEndRotation = _arrowStartRotation * Quaternion.Euler(Vector3.forward * ArrowRotateAngle);
             _arrowCurrentRotation = _arrowStartRotation;
 
+            _button1Material = _button1.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+            _button2Material = _button2.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+
             _button1.onButtonRelease += Button1WasPressed;
             _button2.onButtonRelease += Button2WasPressed;
         }
@@ -47,9 +54,26 @@ namespace TheRoom
             {
                 timePanel.onOpenNextWoodBlock -= RefreshTimer;
             }
+        }
 
+        public void DisableButton1()
+        {
             _button1.onButtonRelease -= Button1WasPressed;
+            _button1.RemoveCollide();
+            _button1Material.color = _disableButtonColor;
+        }
+        
+        public void DisableButton2()
+        {
             _button2.onButtonRelease -= Button2WasPressed;
+            _button2.RemoveCollide();
+            _button2Material.color = _disableButtonColor;
+        }
+
+        public void ItemPickUp()
+        {
+            StopTimer();
+            CloseAllPanels();
         }
 
         private async UniTask MoveArrowAsync(CancellationToken token)
@@ -67,14 +91,17 @@ namespace TheRoom
                     TimeIsOver();
                     break;
                 }
-                if (token.IsCancellationRequested)
+                if (token.IsCancellationRequested == true)
                     break;
+                
                 await UniTask.Yield(this.GetCancellationTokenOnDestroy());
             }
             foreach (Transform arrow in _arrows)
             {
                 arrow.localRotation = _arrowStartRotation;
             }
+
+            _arrowCurrentRotation = _arrowStartRotation;
         }
 
         private void TimeIsOver()
@@ -89,13 +116,13 @@ namespace TheRoom
 
         private void Button1WasPressed()
         {
-            _button2.isEnabled = false;
+            _button2.SetActive(false);
             StartTimer();
         }
 
         private void Button2WasPressed()
         { 
-            _button1.isEnabled = false;
+            _button1.SetActive(false);
             StartTimer();
         }
 
@@ -124,14 +151,8 @@ namespace TheRoom
                     _timePanels[0].RotateWoodBlockAsync(woodBlock,
                         woodBlock.rotation * Quaternion.Euler(Vector3.right * -151f));
             }
-            _button1.isEnabled = true;
-            _button2.isEnabled = true;
-        }
-
-        public void ItemPickUp()
-        {
-            CloseAllPanels();
-            StopTimer();
+            _button1.SetActive(true);
+            _button2.SetActive(true);
         }
     }
 }

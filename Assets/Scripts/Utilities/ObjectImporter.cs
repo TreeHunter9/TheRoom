@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using UnityEngine;
+
+#if (UNITY_EDITOR)
 using UnityEditor;
 using UnityEditor.AssetImporters;
-using UnityEngine;
+#endif
 
 namespace Utilities
 {
+#if (UNITY_EDITOR)
     public class ObjectImporter : AssetPostprocessor
     {
         public override int GetPostprocessOrder()
@@ -59,4 +63,5 @@ namespace Utilities
                 : 0f;
         }
     }
+#endif
 }

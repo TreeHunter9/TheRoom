@@ -68,7 +68,7 @@ namespace TheRoom
         {
             foreach (OrderButton orderButton in _orderButtons)
             {
-                orderButton.Destroy();
+                orderButton.DestroyAsync();
             }
             Destroy(this);
         }

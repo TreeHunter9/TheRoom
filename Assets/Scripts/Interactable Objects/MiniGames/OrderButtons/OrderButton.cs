@@ -77,11 +77,10 @@ namespace TheRoom.InteractableObjects.MiniGames.OrderButtons
             MoveAnimation();
         }
 
-        public async UniTask Destroy()
+        public async UniTask DestroyAsync()
         {
-            if (_isAnimated == false)
-                Destroy(this);
-            await UniTask.WaitUntil(() => _isAnimated == false);
+            if (_isAnimated == true)
+                await UniTask.WaitUntil(() => _isAnimated == false);
             Destroy(this);
         }
     }
