@@ -17,6 +17,7 @@ namespace TheRoom.CameraMovement
         private void Awake()
         {
             _interactList = GetComponent<InteractList>();
+            print(_interactList);
             _hasCollider = TryGetComponent(out _collider);
         }
 
@@ -33,6 +34,7 @@ namespace TheRoom.CameraMovement
         {
             if (_hasCollider == true)
                 _collider.enabled = false;
+            print(transform);
             _interactList.EnableObjects();
         }
     }

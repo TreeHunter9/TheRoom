@@ -17,6 +17,7 @@ namespace TheRoom.Intro
 
         private void Awake()
         {
+            Cursor.visible = false;
             StartCoroutine(StartAnimation());
         }
 
@@ -63,7 +64,7 @@ namespace TheRoom.Intro
                 _panelCanvasGroup.alpha = _panelAlphaChange.Evaluate(alpha);
                 yield return null;
             }
-            
+            Cursor.visible = true;
             SceneManager.UnloadSceneAsync(0);
         }
 

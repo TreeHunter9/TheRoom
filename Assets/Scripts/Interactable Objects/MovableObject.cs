@@ -27,12 +27,11 @@ namespace TheRoom.InteractableObjects
         private void Awake()
         {
             _mainCamera = Camera.main;
-            _startPosition = transform.position;
-            //_endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
         private void OnEnable()
         {
+            _startPosition = transform.position;
             _endPosition = transform.parent.TransformPoint(_endPosition);
         }
 
