@@ -2,16 +2,19 @@ using Cinemachine;
 using UnityEngine;
 using Zenject;
 
-public class CinemachineBrainInstaller : MonoInstaller
+namespace TheRoom.Installers
 {
-    [SerializeField] private CinemachineBrain _cinemachineBrain;
-    
-    public override void InstallBindings()
+    public class CinemachineBrainInstaller : MonoInstaller
     {
-        Container
-            .Bind<CinemachineBrain>()
-            .FromInstance(_cinemachineBrain)
-            .AsCached()
-            .NonLazy();
+        [SerializeField] private CinemachineBrain _cinemachineBrain;
+    
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<CinemachineBrain>()
+                .FromInstance(_cinemachineBrain)
+                .AsCached()
+                .NonLazy();
+        }
     }
 }

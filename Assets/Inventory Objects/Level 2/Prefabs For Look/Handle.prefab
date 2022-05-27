@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 3326075381937941916}
   - component: {fileID: 3326075381937941918}
   - component: {fileID: 3326075381937941919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle.062
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 3326075382443112616}
   - component: {fileID: 3326075382443112618}
   - component: {fileID: 3326075382443112619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.077
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3326075383689337931}
   - component: {fileID: 3326075383689337933}
   - component: {fileID: 3326075383689337930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425643251458572538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}

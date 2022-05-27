@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5753152092610602372}
   - component: {fileID: 6600837670258073867}
   - component: {fileID: 2961486877048245893}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.023
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -317,6 +317,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -351,7 +352,7 @@ GameObject:
   - component: {fileID: 6576996027189553402}
   - component: {fileID: 6758703621461096633}
   - component: {fileID: 4707474198901807986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.021
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -467,6 +468,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -501,7 +503,7 @@ GameObject:
   - component: {fileID: 2831532565902818357}
   - component: {fileID: 2413963021371929151}
   - component: {fileID: 2634757227975217587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.018
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -617,6 +619,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -651,7 +654,7 @@ GameObject:
   - component: {fileID: 1801993618388501060}
   - component: {fileID: 518984028275948822}
   - component: {fileID: 930028650413723109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.022
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -767,6 +770,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -800,7 +804,7 @@ GameObject:
   - component: {fileID: 3475119591737600971}
   - component: {fileID: 8439336677252045310}
   - component: {fileID: 7853838350046865989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Big Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +925,7 @@ GameObject:
   - component: {fileID: 9116323776263293981}
   - component: {fileID: 3804086502342268072}
   - component: {fileID: 5938112628648031594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.019
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -1037,6 +1041,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -1071,7 +1076,7 @@ GameObject:
   - component: {fileID: 4114562775312482769}
   - component: {fileID: 3893169672375258636}
   - component: {fileID: 5381244017761763971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.020
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -1187,6 +1192,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 1
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -1726,7 +1732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7143361657777165767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}

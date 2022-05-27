@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1793199561617364031}
   - component: {fileID: 747714452709220086}
   - component: {fileID: 5083157335923950440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2705869210011798840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 5282958767576165635}
   - component: {fileID: 2263290800184466067}
   - component: {fileID: 522607059494770692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3650948778429086721}
   - component: {fileID: 3650948778429086723}
   - component: {fileID: 3650948778429086722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3650948779146670311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}

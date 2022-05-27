@@ -13,6 +13,8 @@ namespace TheRoom.CameraMovement
 
         [Inject] private CinemachineBrain _cinemachineBrain;
 
+        private bool _isBlocked = false;
+
         private void Awake()
         {
             MouseClickOnObject.onStartInteractionWithObject += Disable;
@@ -30,7 +32,7 @@ namespace TheRoom.CameraMovement
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && _isBlocked == false)
             {
                 ChangeView();
             }
@@ -43,5 +45,8 @@ namespace TheRoom.CameraMovement
 
         public void Disable() => this.enabled = false;
         public void Enable() => this.enabled = true;
+
+        public void Block() => _isBlocked = true;
+        public void Unblock() => _isBlocked = false;
     }
 }

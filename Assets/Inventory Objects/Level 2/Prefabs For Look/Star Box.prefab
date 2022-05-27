@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1711719835434728460}
   - component: {fileID: 1711719835434728690}
   - component: {fileID: 1711719835434728691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.083
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1711719835910391015}
   - component: {fileID: 1711719835910391013}
   - component: {fileID: 1711719835910391014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.081
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1711719836144017082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6781803507042447606}
   - component: {fileID: -6220165510208980231}
   - component: {fileID: 3348529968824621107}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Star Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1656364537893373314}
   - component: {fileID: 444132177354382468}
   - component: {fileID: 6847126371770671217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.079
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -573,6 +573,7 @@ MonoBehaviour:
   _speedRotation: 300
   _autoMagnet: 0
   _autoMagnetAngle: 45
+  _magnetOffset: 0
   _invertZ: 1
   _invertY: 0
   _invertX: 0
@@ -927,7 +928,7 @@ GameObject:
   - component: {fileID: 1711719836547789231}
   - component: {fileID: 1711719836547789229}
   - component: {fileID: 1711719836547789230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.080
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1011,7 @@ GameObject:
   - component: {fileID: 1711719836807512083}
   - component: {fileID: 1711719836807512081}
   - component: {fileID: 1711719836807512082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.082
   m_TagString: Untagged
   m_Icon: {fileID: 0}

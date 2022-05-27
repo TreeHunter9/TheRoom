@@ -53,7 +53,6 @@ namespace TheRoom.InteractableObjects.MiniGames.OrderButtons
                 t += _isAtStartPosition == false ? Time.deltaTime * 2 : -1 * Time.deltaTime * 2;
                 transform.localPosition = Vector3.Lerp(_startPosition, _endPosition, t);
                 _material.SetColor("_Emission", Color.Lerp(Color.black, _emissionColor, t));
-                print(t);
                 if (t <= 0f || t >= 1f)
                     break;
                 await UniTask.Yield(this.GetCancellationTokenOnDestroy());

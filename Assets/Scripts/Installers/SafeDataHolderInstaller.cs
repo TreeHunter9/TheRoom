@@ -2,15 +2,18 @@ using TheRoom.InteractableObjects.MiniGames.SafeCode;
 using UnityEngine;
 using Zenject;
 
-public class SafeDataHolderInstaller : MonoInstaller
+namespace TheRoom.Installers
 {
-    [SerializeField] private SafeDataHolder _safeDataHolder;
-    public override void InstallBindings()
+    public class SafeDataHolderInstaller : MonoInstaller
     {
-        Container
-            .Bind<SafeDataHolder>()
-            .FromInstance(_safeDataHolder)
-            .AsSingle()
-            .NonLazy();
+        [SerializeField] private SafeDataHolder _safeDataHolder;
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<SafeDataHolder>()
+                .FromInstance(_safeDataHolder)
+                .AsSingle()
+                .NonLazy();
+        }
     }
 }

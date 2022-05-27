@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5258674456677529868}
   - component: {fileID: 8718427292040408938}
   - component: {fileID: 1351414966130580685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arrow Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7504903291308082810}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}

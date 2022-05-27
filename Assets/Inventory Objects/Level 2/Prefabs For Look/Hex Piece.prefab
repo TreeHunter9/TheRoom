@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337374411934600148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 9102562080397709277}
   - component: {fileID: 9128430811686352321}
   - component: {fileID: 553554625715887344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hex Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}

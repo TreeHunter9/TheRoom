@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334595510581992258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 8277409337862742830}
   - component: {fileID: 3521948825959436402}
   - component: {fileID: 1775097388594409346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Golden Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 8408420848847130525}
   - component: {fileID: 3333198325057014526}
   - component: {fileID: 253120291797982490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 2780025732539833449}
   - component: {fileID: 1038246260695027112}
   - component: {fileID: 2709066931309380299}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 935591571153245466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 935591571195366026}
   - component: {fileID: 935591571195366022}
   - component: {fileID: 935591571195366023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Little Zoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 935591571624899393}
   - component: {fileID: 935591571624899423}
   - component: {fileID: 935591571624899392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle.056
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 935591572201916980}
   - component: {fileID: 935591572201916978}
   - component: {fileID: 935591572201916979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.088
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 935591572257364781}
   - component: {fileID: 935591572257364779}
   - component: {fileID: 935591572257364780}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.089
   m_TagString: Untagged
   m_Icon: {fileID: 0}

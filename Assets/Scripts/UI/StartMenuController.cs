@@ -17,7 +17,7 @@ namespace TheRoom.UI
         {
             _mouseClickOnObjectScript.enabled = false;
             _moveCameraOnMouseButtonPressScript.StopMovement();
-            _refreshCameraViewScript.Disable();
+            _refreshCameraViewScript.Block();
         }
 
         public void ExitButton() => Application.Quit();
@@ -28,7 +28,6 @@ namespace TheRoom.UI
             StartCoroutine(HideMenu());
             _mouseClickOnObjectScript.enabled = true;
             _moveCameraOnMouseButtonPressScript.StartMovement();
-            _refreshCameraViewScript.Enable();
         }
 
         private IEnumerator HideMenu()

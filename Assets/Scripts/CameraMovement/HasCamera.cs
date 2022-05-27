@@ -1,6 +1,7 @@
 using Cinemachine;
 using TheRoom.InteractableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheRoom.CameraMovement
 {
@@ -8,6 +9,7 @@ namespace TheRoom.CameraMovement
     public class HasCamera : MonoBehaviour
     {
         [SerializeField] private CinemachineFreeLook _camera;
+        [SerializeField] private UnityEvent _actionOnCameraLive;
 
         private Collider _collider;
         private InteractList _interactList;
@@ -17,7 +19,6 @@ namespace TheRoom.CameraMovement
         private void Awake()
         {
             _interactList = GetComponent<InteractList>();
-            print(_interactList);
             _hasCollider = TryGetComponent(out _collider);
         }
 
@@ -34,8 +35,10 @@ namespace TheRoom.CameraMovement
         {
             if (_hasCollider == true)
                 _collider.enabled = false;
-            print(transform);
             _interactList.EnableObjects();
+            _actionOnCameraLive?.Invoke();
         }
+
+        public void DestroyScript() => Destroy(this);
     }
 }

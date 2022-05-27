@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8410350217276361003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 7704534515722083525}
   - component: {fileID: 3668015275329884545}
   - component: {fileID: 8526134149385989166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Star Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -57,6 +57,7 @@ namespace TheRoom.CameraMovement
             }
             else if (Input.GetMouseButtonDown(0))
             {
+                
                 Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit, 100f))
                 {
