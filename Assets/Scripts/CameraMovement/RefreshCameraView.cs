@@ -19,7 +19,7 @@ namespace TheRoom.CameraMovement
         {
             MouseClickOnObject.onStartInteractionWithObject += Disable;
             MouseClickOnObject.onStopInteractionWithObject += Enable;
-            _inventoryCursorChannel.onItemSlotHold += item => Disable();
+            //_inventoryCursorChannel.onItemSlotHold += item => Disable();
             _inventoryCursorChannel.onItemSlotDown += Enable;
         }
 

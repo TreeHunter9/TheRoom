@@ -15,8 +15,17 @@ namespace TheRoom.CameraMovement
         {
             InventorySlot = new InventorySlot();
 
-            _inventoryCursorChannel.onItemSlotHold += item => InventorySlot.Item = item;
-            _inventoryCursorChannel.onItemSlotDown += () => InventorySlot.Clear();
+            _inventoryCursorChannel.onItemSlotHold += SetSlotItem;
+            _inventoryCursorChannel.onItemSlotDown += ClearSlotItem;
         }
+
+        private void OnDestroy()
+        {
+            _inventoryCursorChannel.onItemSlotHold -= SetSlotItem;
+            _inventoryCursorChannel.onItemSlotDown -= ClearSlotItem;
+        }
+
+        private void SetSlotItem(InventoryItem item) => InventorySlot.Item = item;
+        private void ClearSlotItem() => InventorySlot.Clear();
     }
 }
