@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using TheRoom.InteractableObjects.MiniGames.OrderButtons;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TheRoom
+namespace TheRoom.InteractableObjects.MiniGames.OrderButtons
 {
     public class ButtonsController : MonoBehaviour
     {

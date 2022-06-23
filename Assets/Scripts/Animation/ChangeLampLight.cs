@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheRoom
+namespace TheRoom.Animation
 {
     public class ChangeLampLight : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheRoom
+namespace TheRoom.Animation
 {
     [RequireComponent(typeof(UnityEngine.Animation))]
     public class SimpleAnimationLegacy : MonoBehaviour

@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using TheRoom.InventorySystem.Core;
 using UnityEngine;
@@ -14,12 +15,15 @@ namespace TheRoom.CameraMovement
         [Inject] private CinemachineBrain _cinemachineBrain;
 
         private bool _isBlocked = false;
+        private Action<InventoryItem> _disableEventHandlerWithItem;
 
         private void Awake()
         {
+            _disableEventHandlerWithItem = item => Disable();
+            
             MouseClickOnObject.onStartInteractionWithObject += Disable;
             MouseClickOnObject.onStopInteractionWithObject += Enable;
-            //_inventoryCursorChannel.onItemSlotHold += item => Disable();
+            _inventoryCursorChannel.onItemSlotHold += _disableEventHandlerWithItem;
             _inventoryCursorChannel.onItemSlotDown += Enable;
         }
 
@@ -27,6 +31,7 @@ namespace TheRoom.CameraMovement
         {
             MouseClickOnObject.onStartInteractionWithObject -= Disable;
             MouseClickOnObject.onStopInteractionWithObject -= Enable;
+            _inventoryCursorChannel.onItemSlotHold -= _disableEventHandlerWithItem;
             _inventoryCursorChannel.onItemSlotDown -= Enable;
         }
 

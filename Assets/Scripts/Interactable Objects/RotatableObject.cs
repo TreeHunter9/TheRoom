@@ -108,7 +108,6 @@ namespace TheRoom.InteractableObjects
             float rotX = Input.GetAxis("Mouse X");
             float rotY = Input.GetAxis("Mouse Y");
 
-
             Vector3 angle = (_mouseXRotationAxis.ToVector3() * -rotX + _mouseYRotationAxis.ToVector3() * rotY) *
                             (_speedRotation * Time.deltaTime);
             Quaternion newRotation = transform.localRotation * Quaternion.Euler(angle);

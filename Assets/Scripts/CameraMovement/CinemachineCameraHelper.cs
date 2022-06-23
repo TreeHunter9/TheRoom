@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using TheRoom.InventorySystem.Core;
 using UnityEngine;

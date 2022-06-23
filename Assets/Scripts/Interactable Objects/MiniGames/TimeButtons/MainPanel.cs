@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using TheRoom.InteractableObjects;
-using TheRoom.InteractableObjects.MiniGames.TimeButtons;
 using UnityEngine;
 
-namespace TheRoom
+namespace TheRoom.InteractableObjects.MiniGames.TimeButtons
 {
     public class MainPanel : MonoBehaviour
     {

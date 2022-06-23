@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using TheRoom.InventorySystem.Core;
 using TheRoom.UI;
@@ -10,12 +11,19 @@ namespace TheRoom.CameraMovement
     {
         [Range(0.001f, 10f)]
         [SerializeField] private float _sensitivity = 1f;
+        
+        [Inject] private CameraSettings _cameraSettings;
 
         [Inject] private InventoryCursorChannel _inventoryCursorChannel;
 
         [Inject] private CinemachineBrain _cinemachineBrain;
         
         private bool _canMove = true;
+
+        private void Awake()
+        {
+            _sensitivity = _cameraSettings.sensitivity;
+        }
 
         private void Start()
         {
@@ -68,6 +76,7 @@ namespace TheRoom.CameraMovement
         public void SetSensitivity(float value)
         {
             _sensitivity = value;
+            _cameraSettings.sensitivity = value;
         }
     }
 }
