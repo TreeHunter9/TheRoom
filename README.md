@@ -1,6 +1,6 @@
 # The Room (Graduate work - 28.06.2022)
 
-This is analog of "The Room" - 3D puzzler from Fireproof Games, but created with Unity.
+This is analog of ["The Room"](https://store.steampowered.com/app/288160/The_Room/) - 3D puzzler from Fireproof Games, but created with Unity.
 GIFs have low fps for better file size.
 
 <img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Start%20Game.gif" width="49.8%" img align="left" />
