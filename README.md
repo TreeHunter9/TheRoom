@@ -15,8 +15,8 @@ GIFs have low fps for better file size.
 <img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Crystal%20Place.gif" width="500" img align="left" />
 <img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Shield%20Place.gif" width="500" img align="right" />
 
-<img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Big%20Box%20Place.gif" width="500" img align="right" />
-<img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Key%20Change.gif" width="500" img align="left" />
+<img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Big%20Box%20Place.gif" width="500" img align="left" />
+<img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Key%20Change.gif" width="500" img align="right" />
 
 <img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Laser%20Game.gif" width="500" img align="left" />
 <img src="https://github.com/TreeHunter9/TheRoom/blob/main/README%20Data/Gif/Star%20Buttons.gif" width="500" img align="right" />
